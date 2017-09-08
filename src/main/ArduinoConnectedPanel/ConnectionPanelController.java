@@ -21,6 +21,8 @@ public class ConnectionPanelController implements ArduinoConnectionListener{
     }
 
     public void connectionStatusUpdated(boolean isConnected, String arduinoSource){
+        System.err.println(isConnected);
+        System.err.println(arduinoSource);
         switch (arduinoSource){
             case "front":
                 if (isConnected){

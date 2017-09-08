@@ -15,8 +15,11 @@ public class CommandSender implements  CommandSenderInterface{
         this.inputStream = input;
     }
 
-    public void sendCommand(String commandString) throws Exception{
-        outputStream.write(commandString.getBytes());
+    public synchronized void sendCommand(String commandString) throws Exception{
+        // TODO test for functionality... this was done to separate different commands
+        String commandStringPlusLineBreak = commandString + "\n";
+        outputStream.write(commandStringPlusLineBreak.getBytes());
         System.out.println("Java to Arduino: " + commandString);
     }
+
 }

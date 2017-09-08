@@ -1,6 +1,5 @@
 package main;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import main.ArduinoConnectedPanel.ConnectionPanelController;
 import main.MotorControlPanel.MotorController;
 import main.ObserversAndListeners.ArduinoConnectionListener;
@@ -13,14 +12,13 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.TooManyListenersException;
 
 /**
  * Created by Hermann on 04.09.2017.
  */
 public abstract class CompressorController implements Observer {
-    private static SerialConnectionHandler connectionFront = new SerialConnectionHandler();
-    private static SerialConnectionHandler connectionBack = new SerialConnectionHandler();
+    private static SerialConnectionHandler connectionHandlerFront = new SerialConnectionHandler();
+    private static SerialConnectionHandler connectionHandlerBack = new SerialConnectionHandler();
 
     private static SerialPort serialPortFront;
     private static SerialPort serialPortBack;
@@ -65,7 +63,7 @@ public abstract class CompressorController implements Observer {
     private static void initializeArduinoSendersAndListeners(){
         ArduinoResponseListener arduinoResponseListeners[] = {motorController};
         try {
-
+            System.out.println(motorController);
             if(frontIsConnected){
                 serialPortFront.addEventListener(new ArduinoListener(inputStreamFront, "front", arduinoResponseListeners));
                 serialPortFront.notifyOnDataAvailable(true);
@@ -102,12 +100,12 @@ public abstract class CompressorController implements Observer {
     }
 
     private static void initializeSerialConnections(){
-        //connectionFront.addObserver(this);
-        //connectionBack.addObserver(this);
+        //connectionHandlerFront.addObserver(this);
+        //connectionHandlerBack.addObserver(this);
         try {
-            serialPortFront = connectionFront.initializeConnection(Constants.portFront);
-            inputStreamFront = connectionFront.getInputStream();
-            outputStreamFront = connectionFront.getOutputStream();
+            serialPortFront = connectionHandlerFront.initializeConnection(Constants.portFront);
+            inputStreamFront = connectionHandlerFront.getInputStream();
+            outputStreamFront = connectionHandlerFront.getOutputStream();
             frontIsConnected = true;
         } catch (Exception e){
             // If there is no connection, a NullPointrException is caught
@@ -117,9 +115,9 @@ public abstract class CompressorController implements Observer {
         }
 
         try {
-            serialPortBack = connectionBack.initializeConnection(Constants.portBack);
-            inputStreamBack = connectionBack.getInputStream();
-            outputStreamBack = connectionBack.getOutputStream();
+            serialPortBack = connectionHandlerBack.initializeConnection(Constants.portBack);
+            inputStreamBack = connectionHandlerBack.getInputStream();
+            outputStreamBack = connectionHandlerBack.getOutputStream();
             backIsConnected = true;
         } catch (Exception e){
             // If there is no connection, a NullPointrException is caught
@@ -132,13 +130,14 @@ public abstract class CompressorController implements Observer {
     private static void initializeObservers(){
         // In case of reconnection all old observers are deleted, so there's no risk of "double observation"
         // if that is even a thing
-        connectionFront.deleteObservers();
-        connectionBack.deleteObservers();
+        connectionHandlerFront.deleteObservers();
+        connectionHandlerBack.deleteObservers();
 
+        System.out.println(connectionPanelController);
         ArduinoConnectionObserver arduinoConnectionObserver = new ArduinoConnectionObserver(
                 new ArduinoConnectionListener[] {connectionPanelController});
-        connectionFront.addObserver(arduinoConnectionObserver);
-        connectionBack.addObserver(arduinoConnectionObserver);
+        connectionHandlerFront.addObserver(arduinoConnectionObserver);
+        connectionHandlerBack.addObserver(arduinoConnectionObserver);
     }
 
     public static SerialPort getSerialPortFront(){
@@ -151,10 +150,10 @@ public abstract class CompressorController implements Observer {
 
     public void update(Observable obs, Object obj){
         if(obj instanceof Boolean) {
-            if (obs == connectionFront) {
+            if (obs == connectionHandlerFront) {
                 this.frontIsConnected = (Boolean) obj;
             } else {
-                if (obs == connectionBack) {
+                if (obs == connectionHandlerBack) {
                     this.backIsConnected = (Boolean) obj;
                 }
             }
@@ -163,21 +162,31 @@ public abstract class CompressorController implements Observer {
 
     public static void disconnect() {
         try {
-            connectionFront.closeConnection();
+            connectionHandlerFront.closeConnection();
         } catch (NullPointerException e) {
             System.out.println("WARNING: System tried to disconnect from (front) Arduino, but there was no connection to close.");
         }
 
         try {
-            connectionBack.closeConnection();
+            connectionHandlerBack.closeConnection();
         }catch (NullPointerException e){
             System.out.println("WARNING: System tried to disconnect from (back) Arduino, but there was no connection to close.");
         }
     }
 
     public static void reConnect(){
+        disconnect();
         initializeSerialConnections();
         initializeArduinoSendersAndListeners();
         initializeObservers();
+        motorController.setNewCommandSenders(commandSenderFront, commandSenderBack);
+    }
+
+    public static SerialConnectionHandler getConnectionHandlerFront() {
+        return connectionHandlerFront;
+    }
+
+    public static SerialConnectionHandler getConnectionHandlerBack() {
+        return connectionHandlerBack;
     }
 }

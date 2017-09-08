@@ -31,23 +31,23 @@ public class SerialConnectionHandler extends Observable{
             System.out.println("Connection established with port " + comPort + ".");
 
             setChanged();
-            notifyObservers(true);
+            notifyObservers(serialPort);
 
         } catch (NoSuchPortException e){
             System.out.println("WARNING: Port " + comPort + " not found.");
             setChanged();
-            notifyObservers(false);
+            notifyObservers(null);
         }
         return serialPort;
     }
 
     // TODO call upon closing the program
     public void closeConnection() throws NullPointerException{
-        serialPort.close();
-        this.serialPort = null;
-        System.out.println("Connection with port " + serialPort.getName() + " was closed.");
         setChanged();
-        notifyObservers(false);
+        notifyObservers(null);
+        serialPort.close();
+        System.out.println("Connection with port " + serialPort.getName() + " was closed.");
+        this.serialPort = null;
     }
 
     public InputStream getInputStream() throws IOException {

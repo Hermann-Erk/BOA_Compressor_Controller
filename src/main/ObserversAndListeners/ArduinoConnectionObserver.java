@@ -1,7 +1,10 @@
 package main.ObserversAndListeners;
 
+import gnu.io.CommPort;
 import gnu.io.SerialPort;
 import main.CompressorController;
+import main.Constants;
+import main.SerialConnection.SerialConnectionHandler;
 
 import javax.sql.ConnectionEventListener;
 import java.util.Observable;
@@ -19,14 +22,15 @@ public class ArduinoConnectionObserver implements Observer{
 
     public void update(Observable o, Object serialPort){
         String arduinoSource = "";
-        if (serialPort == CompressorController.getSerialPortFront()){
-            arduinoSource = "front";
-        } else {
-            if (serialPort == CompressorController.getSerialPortBack()) {
-                arduinoSource = "back";
+        if(o instanceof SerialConnectionHandler) {
+            if (o == CompressorController.getConnectionHandlerFront()) {
+                arduinoSource = "front";
+            } else {
+                if (o == CompressorController.getConnectionHandlerBack()) {
+                    arduinoSource = "back";
+                }
             }
         }
-
         for (ArduinoConnectionListener listener: connectionListeners){
             if (serialPort instanceof SerialPort) {
                 listener.connectionStatusUpdated(true, arduinoSource);
