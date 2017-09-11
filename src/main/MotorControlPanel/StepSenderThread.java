@@ -40,7 +40,8 @@ public class StepSenderThread extends TimerTask {
                         break;
                 }
             } catch (Exception e) {
-                System.out.println("WARNING: Command has not been sent!");
+                System.out.println("WARNING: Command " + motor.getMotorNumber() + Constants.STEP_CMD + stepSize +
+                        " has not been sent!");
                 e.printStackTrace();
             }
     }

@@ -1,5 +1,6 @@
 package main.MotorControlPanel;
 
+import main.Constants;
 import main.Motor;
 
 import javax.swing.*;
@@ -13,9 +14,9 @@ public class ButtonModelListener implements ChangeListener {
     private boolean isCurrentlyPressed = false;
     private MotorController motorController;
     private Motor motor;
-    private int step;
+    private String step;
 
-    public ButtonModelListener(Motor motor, int step, MotorController motorController){
+    public ButtonModelListener(Motor motor, String step, MotorController motorController){
         this.motorController = motorController;
         this.motor = motor;
         this.step = step;
@@ -26,7 +27,20 @@ public class ButtonModelListener implements ChangeListener {
         ButtonModel buttonModel  = (ButtonModel) e.getSource();
 
         if(buttonModel.isPressed() != isCurrentlyPressed){
-            motorController.stepButtonStateChanged(e, motor, step);
+            switch(step){
+                case "B":
+                    motorController.stepButtonStateChanged(e, motor, Constants.BIG_STEP);
+                    break;
+                case "-B":
+                    motorController.stepButtonStateChanged(e, motor, -Constants.BIG_STEP);
+                    break;
+                case "S":
+                    motorController.stepButtonStateChanged(e, motor, Constants.SMALL_STEP);
+                    break;
+                case "-S":
+                    motorController.stepButtonStateChanged(e, motor, -Constants.SMALL_STEP);
+                    break;
+            }
             isCurrentlyPressed = buttonModel.isPressed();
         }
     }

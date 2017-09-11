@@ -10,10 +10,17 @@ public class Constants {
     public static final String portBack = "COM12";
     public static final String commandDelimiter = " ";
 
-    public static final int SMALL_STEP = 5;
-    public static final int BIG_STEP = 20;
+    public static int SMALL_STEP = 5;
+    public static int BIG_STEP = 20;
 
     //public static final String STEP_CMD = "b";
     public static final String STEP_CMD = "m";
+    public static final String ABS_MOVE_CMD = "a";
+    public static final String REL_MOVE_CMD = "m";
+    public static final String STOP_CMD = "x";
+    public static final String REFERENCE_CMD = "r";
+    public static final String MEASURE_STAGE_CMD = "z";
+
     public static final String POS_RESPONSE = "p";
+    public static final String MAX_LIMIT_RESPONSE = "l";
 }

@@ -7,6 +7,7 @@ import main.SerialConnection.CommandSenderInterface;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
+import java.beans.PropertyChangeEvent;
 import java.util.Timer;
 
 /**
@@ -25,54 +26,39 @@ public class MotorController implements ArduinoResponseListener{
         this.commandSenderFront = commandSenderFront;
         this.commandSenderBack = commandSenderBack;
 
-        this.motorControlPanelForm.button_LL_front_corner.getModel().addChangeListener(new ButtonModelListener(Motor.VC, -Constants.BIG_STEP, this));
-        this.motorControlPanelForm.button_L_front_corner.getModel().addChangeListener(new ButtonModelListener(Motor.VC, -Constants.SMALL_STEP, this));
-        this.motorControlPanelForm.button_RR_front_corner.getModel().addChangeListener(new ButtonModelListener(Motor.VC, Constants.BIG_STEP, this));
-        this.motorControlPanelForm.button_R_front_corner.getModel().addChangeListener(new ButtonModelListener(Motor.VC, Constants.SMALL_STEP, this));
+        this.motorControlPanelForm.button_LL_front_corner.getModel().addChangeListener(new ButtonModelListener(Motor.VC, "-B", this));
+        this.motorControlPanelForm.button_L_front_corner.getModel().addChangeListener(new ButtonModelListener(Motor.VC, "-S", this));
+        this.motorControlPanelForm.button_RR_front_corner.getModel().addChangeListener(new ButtonModelListener(Motor.VC, "B", this));
+        this.motorControlPanelForm.button_R_front_corner.getModel().addChangeListener(new ButtonModelListener(Motor.VC, "S", this));
 
-        this.motorControlPanelForm.button_LL_front_roof.getModel().addChangeListener(new ButtonModelListener(Motor.VR, Constants.BIG_STEP, this));
-        this.motorControlPanelForm.button_L_front_roof.getModel().addChangeListener(new ButtonModelListener(Motor.VR, Constants.SMALL_STEP, this));
-        this.motorControlPanelForm.button_RR_front_roof.getModel().addChangeListener(new ButtonModelListener(Motor.VR, -Constants.BIG_STEP, this));
-        this.motorControlPanelForm.button_R_front_roof.getModel().addChangeListener(new ButtonModelListener(Motor.VR, -Constants.SMALL_STEP, this));
+        this.motorControlPanelForm.button_LL_front_roof.getModel().addChangeListener(new ButtonModelListener(Motor.VR, "B", this));
+        this.motorControlPanelForm.button_L_front_roof.getModel().addChangeListener(new ButtonModelListener(Motor.VR, "S", this));
+        this.motorControlPanelForm.button_RR_front_roof.getModel().addChangeListener(new ButtonModelListener(Motor.VR, "-B", this));
+        this.motorControlPanelForm.button_R_front_roof.getModel().addChangeListener(new ButtonModelListener(Motor.VR, "-S", this));
 
-        this.motorControlPanelForm.button_LL_back_corner.getModel().addChangeListener(new ButtonModelListener(Motor.HC, -Constants.BIG_STEP, this));
-        this.motorControlPanelForm.button_L_back_corner.getModel().addChangeListener(new ButtonModelListener(Motor.HC, -Constants.SMALL_STEP, this));
-        this.motorControlPanelForm.button_RR_back_corner.getModel().addChangeListener(new ButtonModelListener(Motor.HC, Constants.BIG_STEP, this));
-        this.motorControlPanelForm.button_R_back_corner.getModel().addChangeListener(new ButtonModelListener(Motor.HC, Constants.SMALL_STEP, this));
+        this.motorControlPanelForm.button_LL_back_corner.getModel().addChangeListener(new ButtonModelListener(Motor.HC, "-B", this));
+        this.motorControlPanelForm.button_L_back_corner.getModel().addChangeListener(new ButtonModelListener(Motor.HC, "-S", this));
+        this.motorControlPanelForm.button_RR_back_corner.getModel().addChangeListener(new ButtonModelListener(Motor.HC, "B", this));
+        this.motorControlPanelForm.button_R_back_corner.getModel().addChangeListener(new ButtonModelListener(Motor.HC, "S", this));
 
-        this.motorControlPanelForm.button_LL_back_roof.getModel().addChangeListener(new ButtonModelListener(Motor.HR, Constants.BIG_STEP, this));
-        this.motorControlPanelForm.button_L_back_roof.getModel().addChangeListener(new ButtonModelListener(Motor.HR, Constants.SMALL_STEP, this));
-        this.motorControlPanelForm.button_RR_back_roof.getModel().addChangeListener(new ButtonModelListener(Motor.HR, -Constants.BIG_STEP, this));
-        this.motorControlPanelForm.button_R_back_roof.getModel().addChangeListener(new ButtonModelListener(Motor.HR, -Constants.SMALL_STEP, this));
+        this.motorControlPanelForm.button_LL_back_roof.getModel().addChangeListener(new ButtonModelListener(Motor.HR, "B", this));
+        this.motorControlPanelForm.button_L_back_roof.getModel().addChangeListener(new ButtonModelListener(Motor.HR, "S", this));
+        this.motorControlPanelForm.button_RR_back_roof.getModel().addChangeListener(new ButtonModelListener(Motor.HR, "-B", this));
+        this.motorControlPanelForm.button_R_back_roof.getModel().addChangeListener(new ButtonModelListener(Motor.HR, "-S", this));
+
+        this.motorControlPanelForm.smallStepSlider.addChangeListener(e -> setSmallStep(e));
+        this.motorControlPanelForm.bigStepSlider.addChangeListener(e -> setBigStep(e));
     }
 
     void stepButtonStateChanged(ChangeEvent e, Motor motor, int stepSize){
         if(e.getSource() instanceof ButtonModel){
             if(((ButtonModel) e.getSource()).isPressed()){
                 stepSenderThread = new StepSenderThread(commandSenderFront, commandSenderBack, motor, stepSize);
-                //stepSenderThread.run();
                 senderThreadTimer.scheduleAtFixedRate(stepSenderThread, 0, 100);
             } else {
-                System.err.println("testtestset");
                 stepSenderThread.cancel();
             }
         }
-        /*
-        try {
-            switch (motor) {
-                case VC:
-                case VR:
-                    commandSenderFront.sendCommand(motor.getMotorNumber() + Constants.STEP_CMD + stepSize);
-                    break;
-                case HC:
-                case HR:
-                    commandSenderBack.sendCommand(motor.getMotorNumber() + Constants.STEP_CMD + stepSize);
-                    break;
-            }
-        } catch (Exception e){
-            System.out.println("WARNING: Command has not been sent!");
-            e.printStackTrace();
-        }*/
     }
 
     // TODO update labels (and progress bars)
@@ -82,20 +68,52 @@ public class MotorController implements ArduinoResponseListener{
                 switch(motor){
                     case VC:
                         this.motorControlPanelForm.posLabel_VC.setText("" + value);
+                        this.motorControlPanelForm.progressBar_front_corner.setValue(value);
                         break;
                     case VR:
                         this.motorControlPanelForm.posLabel_VR.setText("" + value);
+                        this.motorControlPanelForm.progressBar_front_roof.setValue(value);
                         break;
                     case HC:
                         this.motorControlPanelForm.posLabel_HC.setText("" + value);
+                        this.motorControlPanelForm.progressBar_back_corner.setValue(value);
                         break;
                     case HR:
                         this.motorControlPanelForm.posLabel_HR.setText("" + value);
+                        this.motorControlPanelForm.progressBar_back_roof.setValue(value);
+                        break;
+                }
+                break;
+            case Constants.MAX_LIMIT_RESPONSE:
+                switch(motor){
+                    case VC:
+                        this.motorControlPanelForm.progressBar_front_corner.setMaximum(value);
+                        break;
+                    case VR:
+                        this.motorControlPanelForm.progressBar_front_roof.setMaximum(value);
+                        break;
+                    case HC:
+                        this.motorControlPanelForm.progressBar_back_corner.setMaximum(value);
+                        break;
+                    case HR:
+                        this.motorControlPanelForm.progressBar_back_roof.setMaximum(value);
                         break;
                 }
                 break;
             default:
+                break;
         }
+    }
+
+    private void setSmallStep(ChangeEvent e){
+        System.err.println("test");
+        JSlider smallStepSlider = (JSlider) e.getSource();
+        Constants.SMALL_STEP = smallStepSlider.getValue();
+    }
+
+    private void setBigStep(ChangeEvent e){
+        JSlider bigStepSlider = (JSlider) e.getSource();
+        Constants.BIG_STEP = bigStepSlider.getValue();
     }
 
     // Needed when refreshing the connection, otherwise the commands are sent into an empty output stream

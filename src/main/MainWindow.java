@@ -1,6 +1,7 @@
 package main;
 
 import main.ArduinoConnectedPanel.ConnectedPanelForm;
+import main.CommandInterfacePanel.CommandInterfacePanelForm;
 import main.MotorControlPanel.MotorControlPanelForm;
 
 import javax.swing.*;
@@ -14,11 +15,13 @@ public class MainWindow extends JFrame {
     JPanel rootPanel;
     MotorControlPanelForm motorControlPanelForm;
     ConnectedPanelForm connectedPanelForm;
+    CommandInterfacePanelForm commandSenderInterfaceForm;
 
     MainWindow() {
         super();
 
         setContentPane(rootPanel);
+        this.setTitle("BOA Prism Controller");
         this.setVisible(true);
         pack();
 

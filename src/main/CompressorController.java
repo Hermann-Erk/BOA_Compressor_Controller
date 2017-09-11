@@ -1,6 +1,7 @@
 package main;
 
 import main.ArduinoConnectedPanel.ConnectionPanelController;
+import main.CommandInterfacePanel.CommandInterfacePanelController;
 import main.MotorControlPanel.MotorController;
 import main.ObserversAndListeners.ArduinoConnectionListener;
 import main.ObserversAndListeners.ArduinoConnectionObserver;
@@ -36,6 +37,7 @@ public abstract class CompressorController implements Observer {
 
     private static MotorController motorController;
     private static ConnectionPanelController connectionPanelController;
+    private static CommandInterfacePanelController commandInterfacePanelController;
 
     public static void main(String[] args){
         initializeController();
@@ -46,10 +48,17 @@ public abstract class CompressorController implements Observer {
         mainWindow = new MainWindow();
 
         initializeSerialConnections();
-        initializeArduinoSendersAndListeners();
+        initializeArduinoSenders();
         initializeControlPanel();
         initializeConnectionPanel();
+        initializeCommandInterfacePanel();
+        initializeArduinoListeners();
         initializeObservers();
+    }
+
+    private static void initializeCommandInterfacePanel(){
+        commandInterfacePanelController = new CommandInterfacePanelController(mainWindow.commandSenderInterfaceForm,
+                commandSenderFront, commandSenderBack);
     }
 
     private static void initializeControlPanel(){
@@ -60,10 +69,9 @@ public abstract class CompressorController implements Observer {
         connectionPanelController = new ConnectionPanelController(mainWindow.connectedPanelForm);
     }
 
-    private static void initializeArduinoSendersAndListeners(){
-        ArduinoResponseListener arduinoResponseListeners[] = {motorController};
+    private static void initializeArduinoListeners(){ArduinoResponseListener arduinoResponseListeners[] = {motorController};
         try {
-            System.out.println(motorController);
+            //System.out.println(motorController);
             if(frontIsConnected){
                 serialPortFront.addEventListener(new ArduinoListener(inputStreamFront, "front", arduinoResponseListeners));
                 serialPortFront.notifyOnDataAvailable(true);
@@ -81,7 +89,9 @@ public abstract class CompressorController implements Observer {
             //e.printStackTrace();
             System.out.println("WARNING: The controller is not listening to all Arduinos.");
         }
+    }
 
+    private static void initializeArduinoSenders(){
         if (outputStreamFront != null && inputStreamFront != null) {
             commandSenderFront = new CommandSender(outputStreamFront, inputStreamFront);
             System.out.println("The command sender (front) has been initialized.");
@@ -133,7 +143,7 @@ public abstract class CompressorController implements Observer {
         connectionHandlerFront.deleteObservers();
         connectionHandlerBack.deleteObservers();
 
-        System.out.println(connectionPanelController);
+        //System.out.println(connectionPanelController);
         ArduinoConnectionObserver arduinoConnectionObserver = new ArduinoConnectionObserver(
                 new ArduinoConnectionListener[] {connectionPanelController});
         connectionHandlerFront.addObserver(arduinoConnectionObserver);
@@ -177,7 +187,8 @@ public abstract class CompressorController implements Observer {
     public static void reConnect(){
         disconnect();
         initializeSerialConnections();
-        initializeArduinoSendersAndListeners();
+        initializeArduinoSenders();
+        initializeArduinoListeners();
         initializeObservers();
         motorController.setNewCommandSenders(commandSenderFront, commandSenderBack);
     }
