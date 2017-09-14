@@ -33,7 +33,57 @@ public class CommandInterfacePanelController implements CommandSenderConnected, 
         this.commandInterfacePanelForm.measureStageButton.addActionListener(e -> sendPositionCommand(e.getSource()));
         this.commandInterfacePanelForm.referenceToZeroButton.addActionListener(e -> sendPositionCommand(e.getSource()));
 
+        this.commandInterfacePanelForm.comboBox1.addActionListener(e -> enableAndDisableComponents(e));
+
         this.commandInterfacePanelForm.stopButton.addActionListener(e -> stopMotors());
+    }
+
+    private void enableAndDisableComponents(ActionEvent event){
+        JComboBox comboBox = (JComboBox) event.getSource();
+        switch(comboBox.getSelectedIndex()){
+            case 0:
+                if(this.frontCornerCubeIsMoving){
+                    disableButtons();
+                }else{
+                    enableButtons();
+                }
+                break;
+            case 1:
+                if(this.frontRoofmirrorIsMoving){
+                    disableButtons();
+                }else{
+                    enableButtons();
+                }
+                break;
+            case 2:
+                if(this.backCornerCubeIsMoving){
+                    disableButtons();
+                }else{
+                    enableButtons();
+                }
+                break;
+            case 3:
+                if(this.backRoofmirrorIsMoving){
+                    disableButtons();
+                }else{
+                    enableButtons();
+                }
+                break;
+        }
+    }
+
+    private void disableButtons(){
+        this.commandInterfacePanelForm.relMoveButton.setEnabled(false);
+        this.commandInterfacePanelForm.absMoveButton.setEnabled(false);
+        this.commandInterfacePanelForm.referenceToZeroButton.setEnabled(false);
+        this.commandInterfacePanelForm.measureStageButton.setEnabled(false);
+    }
+
+    private void enableButtons(){
+        this.commandInterfacePanelForm.relMoveButton.setEnabled(true);
+        this.commandInterfacePanelForm.absMoveButton.setEnabled(true);
+        this.commandInterfacePanelForm.referenceToZeroButton.setEnabled(true);
+        this.commandInterfacePanelForm.measureStageButton.setEnabled(true);
     }
 
     private void stopMotors(){
@@ -115,15 +165,27 @@ public class CommandInterfacePanelController implements CommandSenderConnected, 
                 switch (motor){
                     case VC:
                         this.frontCornerCubeIsMoving = true;
+                            if (this.commandInterfacePanelForm.comboBox1.getSelectedIndex() == 0) {
+                                disableButtons();
+                            }
                         break;
                     case VR:
                         this.frontRoofmirrorIsMoving = true;
+                            if (this.commandInterfacePanelForm.comboBox1.getSelectedIndex() == 1) {
+                                disableButtons();
+                            }
                         break;
                     case HC:
                         this.backCornerCubeIsMoving = true;
+                            if (this.commandInterfacePanelForm.comboBox1.getSelectedIndex() == 2) {
+                                disableButtons();
+                            }
                         break;
                     case HR:
                         this.backRoofmirrorIsMoving = true;
+                            if (this.commandInterfacePanelForm.comboBox1.getSelectedIndex() == 3) {
+                                disableButtons();
+                            }
                         break;
                 }
                 break;
@@ -131,15 +193,27 @@ public class CommandInterfacePanelController implements CommandSenderConnected, 
                 switch (motor){
                     case VC:
                         this.frontCornerCubeIsMoving = false;
+                            if (this.commandInterfacePanelForm.comboBox1.getSelectedIndex() == 0) {
+                                enableButtons();
+                            }
                         break;
                     case VR:
                         this.frontRoofmirrorIsMoving = false;
+                            if (this.commandInterfacePanelForm.comboBox1.getSelectedIndex() == 1) {
+                                enableButtons();
+                            }
                         break;
                     case HC:
                         this.backCornerCubeIsMoving = false;
+                            if (this.commandInterfacePanelForm.comboBox1.getSelectedIndex() == 2) {
+                                enableButtons();
+                            }
                         break;
                     case HR:
                         this.backRoofmirrorIsMoving = false;
+                            if (this.commandInterfacePanelForm.comboBox1.getSelectedIndex() == 3) {
+                                enableButtons();
+                            }
                         break;
                 }
                 break;
