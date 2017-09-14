@@ -1,6 +1,7 @@
 package main;
 
 import main.ArduinoConnectedPanel.ConnectedPanelForm;
+import main.CalibrationControlPanel.CalibrationPanelForm;
 import main.CommandInterfacePanel.CommandInterfacePanelForm;
 import main.MotorControlPanel.MotorControlPanelForm;
 
@@ -16,6 +17,7 @@ public class MainWindow extends JFrame {
     MotorControlPanelForm motorControlPanelForm;
     ConnectedPanelForm connectedPanelForm;
     CommandInterfacePanelForm commandSenderInterfaceForm;
+    CalibrationPanelForm calibrationPanelForm;
 
     MainWindow() {
         super();

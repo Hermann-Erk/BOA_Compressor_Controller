@@ -1,6 +1,9 @@
 package main.CommandInterfacePanel;
 
 import main.Constants;
+import main.Motor;
+import main.ObserversAndListeners.ArduinoResponseListener;
+import main.SerialConnection.CommandSenderConnected;
 import main.SerialConnection.CommandSenderInterface;
 
 import javax.swing.*;
@@ -9,10 +12,15 @@ import java.awt.event.ActionEvent;
 /**
  * Created by Hermann on 10.09.2017.
  */
-public class CommandInterfacePanelController {
+public class CommandInterfacePanelController implements CommandSenderConnected, ArduinoResponseListener {
     private CommandInterfacePanelForm commandInterfacePanelForm;
     private CommandSenderInterface commandSenderFront;
     private CommandSenderInterface commandSenderBack;
+
+    private boolean frontCornerCubeIsMoving = false;
+    private boolean backCornerCubeIsMoving = false;
+    private boolean frontRoofmirrorIsMoving = false;
+    private boolean backRoofmirrorIsMoving = false;
 
     public CommandInterfacePanelController(CommandInterfacePanelForm form, CommandSenderInterface frontSender,
                                            CommandSenderInterface backSender){
@@ -29,20 +37,10 @@ public class CommandInterfacePanelController {
     }
 
     private void stopMotors(){
-        try {
-            commandSenderFront.sendCommand("1" + Constants.STOP_CMD);
-            commandSenderFront.sendCommand("2" + Constants.STOP_CMD);
-        } catch (Exception e){
-            System.out.println("WARNING: Stop commands were not send to the front Arduino.");
-        }
-
-        try {
-            commandSenderBack.sendCommand("1" + Constants.STOP_CMD);
-            commandSenderBack.sendCommand("2" + Constants.STOP_CMD);
-        } catch (Exception e){
-            System.out.println("WARNING: Stop commands were not send to the back Arduino.");
-        }
-
+        commandSenderFront.sendCommand("1" + Constants.STOP_CMD);
+        commandSenderFront.sendCommand("2" + Constants.STOP_CMD);
+        commandSenderBack.sendCommand("1" + Constants.STOP_CMD);
+        commandSenderBack.sendCommand("2" + Constants.STOP_CMD);
     }
 
     private void sendPositionCommand(Object eventObject){
@@ -103,5 +101,48 @@ public class CommandInterfacePanelController {
                     " has not been sent!");
         }
         return;
+    }
+
+    public void setNewCommandSenders(CommandSenderInterface frontSender, CommandSenderInterface backSender){
+        this.commandSenderFront = frontSender;
+        this.commandSenderBack = backSender;
+    }
+
+    @Override
+    public void arduinoResponse(Motor motor, String command, int value) {
+        switch (command){
+            case Constants.ARDUINO_STARTED_MOVING_RESPONSE:
+                switch (motor){
+                    case VC:
+                        this.frontCornerCubeIsMoving = true;
+                        break;
+                    case VR:
+                        this.frontRoofmirrorIsMoving = true;
+                        break;
+                    case HC:
+                        this.backCornerCubeIsMoving = true;
+                        break;
+                    case HR:
+                        this.backRoofmirrorIsMoving = true;
+                        break;
+                }
+                break;
+            case Constants.ARDUINO_STOPPED_MOVING_RESPONSE:
+                switch (motor){
+                    case VC:
+                        this.frontCornerCubeIsMoving = false;
+                        break;
+                    case VR:
+                        this.frontRoofmirrorIsMoving = false;
+                        break;
+                    case HC:
+                        this.backCornerCubeIsMoving = false;
+                        break;
+                    case HR:
+                        this.backRoofmirrorIsMoving = false;
+                        break;
+                }
+                break;
+        }
     }
 }

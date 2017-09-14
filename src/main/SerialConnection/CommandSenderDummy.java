@@ -6,7 +6,7 @@ package main.SerialConnection;
 public class CommandSenderDummy implements CommandSenderInterface{
 
     @Override
-    public void sendCommand(String commandString) throws Exception {
+    public void sendCommand(String commandString) {
         System.out.println("WARNING: Command " + commandString + " has not been sent by the dummy.");
     }
 

@@ -1,6 +1,8 @@
 package main;
 
 import main.ArduinoConnectedPanel.ConnectionPanelController;
+import main.CalibrationControlPanel.CalibrationPanelController;
+import main.CalibrationData.CalibrationFileParser;
 import main.CommandInterfacePanel.CommandInterfacePanelController;
 import main.MotorControlPanel.MotorController;
 import main.ObserversAndListeners.ArduinoConnectionListener;
@@ -38,6 +40,7 @@ public abstract class CompressorController implements Observer {
     private static MotorController motorController;
     private static ConnectionPanelController connectionPanelController;
     private static CommandInterfacePanelController commandInterfacePanelController;
+    private static CalibrationPanelController calibrationPanelController;
 
     public static void main(String[] args){
         initializeController();
@@ -47,13 +50,29 @@ public abstract class CompressorController implements Observer {
     private static void initializeController(){
         mainWindow = new MainWindow();
 
+        /*
+        CalibrationFileParser parser = new CalibrationFileParser();
+
+        try {
+            CalibrationFileParser.printCalibrationDataToConsole(parser.readCalibrationFile(Constants.calibrationFilePath));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        */
+
         initializeSerialConnections();
         initializeArduinoSenders();
         initializeControlPanel();
         initializeConnectionPanel();
         initializeCommandInterfacePanel();
+        initializeCalibrationPanel();
         initializeArduinoListeners();
         initializeObservers();
+    }
+
+    private static void initializeCalibrationPanel(){
+        calibrationPanelController = new CalibrationPanelController(mainWindow.calibrationPanelForm,
+                commandSenderFront, commandSenderBack);
     }
 
     private static void initializeCommandInterfacePanel(){
@@ -69,7 +88,8 @@ public abstract class CompressorController implements Observer {
         connectionPanelController = new ConnectionPanelController(mainWindow.connectedPanelForm);
     }
 
-    private static void initializeArduinoListeners(){ArduinoResponseListener arduinoResponseListeners[] = {motorController};
+    private static void initializeArduinoListeners(){ArduinoResponseListener arduinoResponseListeners[]
+            = {motorController, calibrationPanelController, commandInterfacePanelController};
         try {
             //System.out.println(motorController);
             if(frontIsConnected){
@@ -191,6 +211,8 @@ public abstract class CompressorController implements Observer {
         initializeArduinoListeners();
         initializeObservers();
         motorController.setNewCommandSenders(commandSenderFront, commandSenderBack);
+        calibrationPanelController.setNewCommandSenders(commandSenderFront, commandSenderBack);
+        commandInterfacePanelController.setNewCommandSenders(commandSenderFront, commandSenderBack);
     }
 
     public static SerialConnectionHandler getConnectionHandlerFront() {

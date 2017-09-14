@@ -1,5 +1,7 @@
 package main.SerialConnection;
 
+import main.Constants;
+
 import java.io.InputStream;
 import java.io.OutputStream;
 
@@ -15,11 +17,16 @@ public class CommandSender implements  CommandSenderInterface{
         this.inputStream = input;
     }
 
-    public synchronized void sendCommand(String commandString) throws Exception{
+    public synchronized void sendCommand(String commandString){
         // TODO test for functionality... this was done to separate different commands
-        String commandStringPlusLineBreak = commandString + "\n";
-        outputStream.write(commandStringPlusLineBreak.getBytes());
-        System.out.println("Java to Arduino: " + commandString);
+        try {
+            String commandStringPlusLineBreak = commandString + "\n";
+            outputStream.write(commandStringPlusLineBreak.getBytes());
+            System.out.println("Java to Arduino: " + commandString);
+        }catch (Exception e){
+            System.out.println("WARNING: Command " + commandString +
+                    " has not been sent!");
+        }
     }
 
 }

@@ -50,15 +50,6 @@ public class ArduinoListener implements SerialPortEventListener {
                     listener.arduinoResponse(motor, command, number);
                 }
 
-                switch(command){
-                    case "p": //position in panel aktualisieren
-                             break;
-                    default: System.out.println("WARNING: Arduino gave unexpected response.");
-                             break;
-                }
-
-                // TODO switch-case for all possible answers from the Arduino
-                // with updates to the GUI
             }catch (IOException e){
                 e.printStackTrace();
             }
