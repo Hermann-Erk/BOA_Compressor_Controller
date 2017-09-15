@@ -88,7 +88,8 @@ public abstract class CompressorController implements Observer {
         connectionPanelController = new ConnectionPanelController(mainWindow.connectedPanelForm);
     }
 
-    private static void initializeArduinoListeners(){ArduinoResponseListener arduinoResponseListeners[]
+    private static void initializeArduinoListeners(){
+        ArduinoResponseListener arduinoResponseListeners[]
             = {motorController, calibrationPanelController, commandInterfacePanelController};
         try {
             //System.out.println(motorController);

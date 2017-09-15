@@ -41,19 +41,19 @@ public enum Motor {
     public static Motor getAbbreviation(String arduino, String motor) {
         int motorNumber = Integer.parseInt(motor);
         if (arduino.equals("front")) {
-            if (motorNumber == 1) {
+            if (motorNumber == 0) {
                 return VC;
             } else {
-                if (motorNumber == 2) {
+                if (motorNumber == 1) {
                     return VR;
                 }
             }
         } else {
             if (arduino.equals("back")) {
-                if (motorNumber == 1) {
+                if (motorNumber == 0) {
                     return HC;
                 } else {
-                    if (motorNumber == 2) {
+                    if (motorNumber == 1) {
                         return HR;
                     }
                 }

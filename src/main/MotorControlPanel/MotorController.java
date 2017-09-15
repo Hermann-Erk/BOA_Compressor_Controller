@@ -114,28 +114,28 @@ public class MotorController implements ArduinoResponseListener, CommandSenderCo
                         this.motorControlPanelForm.button_L_front_corner.setEnabled(false);
                         this.motorControlPanelForm.button_RR_front_corner.setEnabled(false);
                         this.motorControlPanelForm.button_R_front_corner.setEnabled(false);
-                        this.motorControlPanelForm.progressBar_front_corner.setForeground(Constants.NOT_MOVING_PROGRESS_BAR_COLOR);
+                        this.motorControlPanelForm.progressBar_front_corner.setForeground(Constants.MOVING_PROGRESS_BAR_COLOR);
                         break;
                     case VR:
                         this.motorControlPanelForm.button_LL_front_roof.setEnabled(false);
                         this.motorControlPanelForm.button_L_front_roof.setEnabled(false);
                         this.motorControlPanelForm.button_RR_front_roof.setEnabled(false);
                         this.motorControlPanelForm.button_R_front_roof.setEnabled(false);
-                        this.motorControlPanelForm.button_R_front_roof.setForeground(Constants.NOT_MOVING_PROGRESS_BAR_COLOR);
+                        this.motorControlPanelForm.progressBar_front_roof.setForeground(Constants.MOVING_PROGRESS_BAR_COLOR);
                         break;
                     case HC:
                         this.motorControlPanelForm.button_LL_back_corner.setEnabled(false);
                         this.motorControlPanelForm.button_L_back_corner.setEnabled(false);
                         this.motorControlPanelForm.button_RR_back_corner.setEnabled(false);
                         this.motorControlPanelForm.button_R_back_corner.setEnabled(false);
-                        this.motorControlPanelForm.button_R_back_corner.setForeground(Constants.NOT_MOVING_PROGRESS_BAR_COLOR);
+                        this.motorControlPanelForm.progressBar_back_corner.setForeground(Constants.MOVING_PROGRESS_BAR_COLOR);
                         break;
                     case HR:
                         this.motorControlPanelForm.button_LL_back_roof.setEnabled(false);
                         this.motorControlPanelForm.button_L_back_roof.setEnabled(false);
                         this.motorControlPanelForm.button_RR_back_roof.setEnabled(false);
                         this.motorControlPanelForm.button_R_back_roof.setEnabled(false);
-                        this.motorControlPanelForm.button_R_back_roof.setForeground(Constants.NOT_MOVING_PROGRESS_BAR_COLOR);
+                        this.motorControlPanelForm.progressBar_back_roof.setForeground(Constants.MOVING_PROGRESS_BAR_COLOR);
                         break;
                 }
                 break;
@@ -153,21 +153,21 @@ public class MotorController implements ArduinoResponseListener, CommandSenderCo
                         this.motorControlPanelForm.button_L_front_roof.setEnabled(true);
                         this.motorControlPanelForm.button_RR_front_roof.setEnabled(true);
                         this.motorControlPanelForm.button_R_front_roof.setEnabled(true);
-                        this.motorControlPanelForm.button_R_front_roof.setForeground(Constants.MOVING_PROGRESS_BAR_COLOR);
+                        this.motorControlPanelForm.progressBar_front_roof.setForeground(Constants.MOVING_PROGRESS_BAR_COLOR);
                         break;
                     case HC:
                         this.motorControlPanelForm.button_LL_back_corner.setEnabled(true);
                         this.motorControlPanelForm.button_L_back_corner.setEnabled(true);
                         this.motorControlPanelForm.button_RR_back_corner.setEnabled(true);
                         this.motorControlPanelForm.button_R_back_corner.setEnabled(true);
-                        this.motorControlPanelForm.button_R_back_corner.setForeground(Constants.MOVING_PROGRESS_BAR_COLOR);
+                        this.motorControlPanelForm.progressBar_back_corner.setForeground(Constants.MOVING_PROGRESS_BAR_COLOR);
                         break;
                     case HR:
                         this.motorControlPanelForm.button_LL_back_roof.setEnabled(true);
                         this.motorControlPanelForm.button_L_back_roof.setEnabled(true);
                         this.motorControlPanelForm.button_RR_back_roof.setEnabled(true);
                         this.motorControlPanelForm.button_R_back_roof.setEnabled(true);
-                        this.motorControlPanelForm.button_R_back_roof.setForeground(Constants.MOVING_PROGRESS_BAR_COLOR);
+                        this.motorControlPanelForm.progressBar_back_roof.setForeground(Constants.MOVING_PROGRESS_BAR_COLOR);
                         break;
                 }
                 break;

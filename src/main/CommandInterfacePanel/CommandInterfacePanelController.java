@@ -135,7 +135,7 @@ public class CommandInterfacePanelController implements CommandSenderConnected, 
         }
 
         int position = 0;
-        if(!(commandAbbreviation == Constants.MEASURE_STAGE_CMD || commandAbbreviation == Constants.REFERENCE_CMD)){
+        if(!(commandAbbreviation.equals(Constants.MEASURE_STAGE_CMD) || commandAbbreviation.equals(Constants.REFERENCE_CMD))){
             try {
                 position = Integer.parseInt(this.commandInterfacePanelForm.positionValueField.getText());
             } catch (NumberFormatException exc) {
@@ -150,7 +150,6 @@ public class CommandInterfacePanelController implements CommandSenderConnected, 
             System.out.println("WARNING: Command " + motorString + commandAbbreviation + position +
                     " has not been sent!");
         }
-        return;
     }
 
     public void setNewCommandSenders(CommandSenderInterface frontSender, CommandSenderInterface backSender){

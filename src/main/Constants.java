@@ -9,7 +9,7 @@ public class Constants {
     //public static final String portFront = "COM6";
     //public static final String portBack = "COM5";
     public static final String portFront = "COM6";
-    public static final String portBack = "COM12";
+    public static final String portBack = "COM11";
     public static final String commandDelimiter = " ";
 
     public static final String calibrationFilePath2H = "C:\\Users\\Hermann\\Documents\\GitHub\\BOA_Compressor_Controller\\calibration\\calibrationFile2H.txt";
@@ -31,6 +31,7 @@ public class Constants {
     public static final String MAX_LIMIT_RESPONSE = "l";
     public static final String ARDUINO_STARTED_MOVING_RESPONSE = "f";
     public static final String ARDUINO_STOPPED_MOVING_RESPONSE = "s";
+    public static final String ARDUINO_COULD_NOT_LOAD_FROM_EEPROM_RESPONSE = "y";
 
     public static final Color MOVING_PROGRESS_BAR_COLOR = Color.ORANGE;
     public static final Color NOT_MOVING_PROGRESS_BAR_COLOR = Color.GREEN;
