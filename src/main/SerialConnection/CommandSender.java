@@ -27,6 +27,11 @@ public class CommandSender implements  CommandSenderInterface{
             System.out.println("WARNING: Command " + commandString +
                     " has not been sent!");
         }
+        try {
+            Thread.sleep(20);
+        }catch (Exception e){
+
+        }
     }
 
 }

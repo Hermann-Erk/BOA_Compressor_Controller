@@ -9,7 +9,7 @@ public class Constants {
     //public static final String portFront = "COM6";
     //public static final String portBack = "COM5";
     public static final String portFront = "COM6";
-    public static final String portBack = "COM11";
+    public static final String portBack = "COM5";
     public static final String commandDelimiter = " ";
 
     public static final String calibrationFilePath2H = "C:\\Users\\Hermann\\Documents\\GitHub\\BOA_Compressor_Controller\\calibration\\calibrationFile2H.txt";

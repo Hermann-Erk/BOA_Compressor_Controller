@@ -32,16 +32,20 @@ public class ArduinoListener implements SerialPortEventListener {
         this.responseListeners = listeners;
     }
 
-    public synchronized void serialEvent(SerialPortEvent event){
+    public void serialEvent(SerialPortEvent event){
         if (event.getEventType() == SerialPortEvent.DATA_AVAILABLE){
             try{
                 String inputLine = bufferedReader.readLine();
-                //System.out.println("Arduino to Java: " + inputLine);
+                System.out.println("Arduino to Java: " + inputLine);
 
                 Scanner scanner = new Scanner(inputLine).useDelimiter(Constants.commandDelimiter);
                 String motorString = scanner.next();
                 String command = scanner.next();
                 int number = scanner.nextInt();
+
+                //System.out.println(motorString);
+                //System.out.println(command);
+                //System.out.println(number);
 
                 Motor motor = Motor.getAbbreviation(arduino, motorString);
 

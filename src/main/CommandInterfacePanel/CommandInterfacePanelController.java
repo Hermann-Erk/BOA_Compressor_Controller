@@ -87,10 +87,10 @@ public class CommandInterfacePanelController implements CommandSenderConnected, 
     }
 
     private void stopMotors(){
-        commandSenderFront.sendCommand("1" + Constants.STOP_CMD);
         commandSenderFront.sendCommand("2" + Constants.STOP_CMD);
-        commandSenderBack.sendCommand("1" + Constants.STOP_CMD);
+        commandSenderFront.sendCommand("1" + Constants.STOP_CMD);
         commandSenderBack.sendCommand("2" + Constants.STOP_CMD);
+        commandSenderBack.sendCommand("1" + Constants.STOP_CMD);
     }
 
     private void sendPositionCommand(Object eventObject){

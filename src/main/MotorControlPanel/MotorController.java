@@ -69,9 +69,10 @@ public class MotorController implements ArduinoResponseListener, CommandSenderCo
     }
 
     // TODO update labels (and progress bars)
-    public void arduinoResponse(Motor motor, String command, int value){
+    public synchronized void arduinoResponse(Motor motor, String command, int value){
         switch(command){
             case Constants.POS_RESPONSE:
+                //System.out.println("testest");
                 switch(motor){
                     case VC:
                         this.motorControlPanelForm.posLabel_VC.setText("" + value);
@@ -92,6 +93,7 @@ public class MotorController implements ArduinoResponseListener, CommandSenderCo
                 }
                 break;
             case Constants.MAX_LIMIT_RESPONSE:
+                //System.out.println(motor);
                 switch(motor){
                     case VC:
                         this.motorControlPanelForm.progressBar_front_corner.setMaximum(value);
@@ -146,28 +148,28 @@ public class MotorController implements ArduinoResponseListener, CommandSenderCo
                         this.motorControlPanelForm.button_L_front_corner.setEnabled(true);
                         this.motorControlPanelForm.button_RR_front_corner.setEnabled(true);
                         this.motorControlPanelForm.button_R_front_corner.setEnabled(true);
-                        this.motorControlPanelForm.progressBar_front_corner.setForeground(Constants.MOVING_PROGRESS_BAR_COLOR);
+                        this.motorControlPanelForm.progressBar_front_corner.setForeground(Constants.NOT_MOVING_PROGRESS_BAR_COLOR);
                         break;
                     case VR:
                         this.motorControlPanelForm.button_LL_front_roof.setEnabled(true);
                         this.motorControlPanelForm.button_L_front_roof.setEnabled(true);
                         this.motorControlPanelForm.button_RR_front_roof.setEnabled(true);
                         this.motorControlPanelForm.button_R_front_roof.setEnabled(true);
-                        this.motorControlPanelForm.progressBar_front_roof.setForeground(Constants.MOVING_PROGRESS_BAR_COLOR);
+                        this.motorControlPanelForm.progressBar_front_roof.setForeground(Constants.NOT_MOVING_PROGRESS_BAR_COLOR);
                         break;
                     case HC:
                         this.motorControlPanelForm.button_LL_back_corner.setEnabled(true);
                         this.motorControlPanelForm.button_L_back_corner.setEnabled(true);
                         this.motorControlPanelForm.button_RR_back_corner.setEnabled(true);
                         this.motorControlPanelForm.button_R_back_corner.setEnabled(true);
-                        this.motorControlPanelForm.progressBar_back_corner.setForeground(Constants.MOVING_PROGRESS_BAR_COLOR);
+                        this.motorControlPanelForm.progressBar_back_corner.setForeground(Constants.NOT_MOVING_PROGRESS_BAR_COLOR);
                         break;
                     case HR:
                         this.motorControlPanelForm.button_LL_back_roof.setEnabled(true);
                         this.motorControlPanelForm.button_L_back_roof.setEnabled(true);
                         this.motorControlPanelForm.button_RR_back_roof.setEnabled(true);
                         this.motorControlPanelForm.button_R_back_roof.setEnabled(true);
-                        this.motorControlPanelForm.progressBar_back_roof.setForeground(Constants.MOVING_PROGRESS_BAR_COLOR);
+                        this.motorControlPanelForm.progressBar_back_roof.setForeground(Constants.NOT_MOVING_PROGRESS_BAR_COLOR);
                         break;
                 }
                 break;
