@@ -28,7 +28,8 @@ public class CommandSender implements  CommandSenderInterface{
                     " has not been sent!");
         }
         try {
-            Thread.sleep(20);
+            //The arduino has problems reading the buffer in time if too many commands are sent
+            Thread.sleep(1000);
         }catch (Exception e){
 
         }

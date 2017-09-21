@@ -2,15 +2,15 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="main.MotorControlPanel.MotorControlPanelForm">
   <grid id="27dc6" binding="MotorControllerPanel" layout-manager="GridBagLayout">
     <constraints>
-      <xy x="20" y="302" width="902" height="747"/>
+      <xy x="20" y="302" width="1245" height="747"/>
     </constraints>
     <properties/>
     <border type="none" title="Motor Controller"/>
     <children>
-      <grid id="b2bca" binding="panel_VC" layout-manager="GridLayoutManager" row-count="2" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="b2bca" binding="panel_VC" layout-manager="GridLayoutManager" row-count="3" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="10" left="10" bottom="10" right="10"/>
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties/>
@@ -18,7 +18,7 @@
         <children>
           <component id="221b6" class="javax.swing.JProgressBar" binding="progressBar_front_corner">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <indeterminate value="false"/>
@@ -28,7 +28,7 @@
           </component>
           <component id="3da90" class="javax.swing.JButton" binding="button_LL_front_corner">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="&lt;-   &lt;-"/>
@@ -36,7 +36,7 @@
           </component>
           <component id="e85e1" class="javax.swing.JButton" binding="button_L_front_corner">
             <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="&lt;-"/>
@@ -44,7 +44,7 @@
           </component>
           <component id="aa4b4" class="javax.swing.JLabel" binding="posLabel_VC">
             <constraints>
-              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
               </grid>
             </constraints>
@@ -54,7 +54,7 @@
           </component>
           <component id="65e97" class="javax.swing.JButton" binding="button_RR_front_corner">
             <constraints>
-              <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="-&gt;   -&gt;"/>
@@ -62,99 +62,32 @@
           </component>
           <component id="2eee8" class="javax.swing.JButton" binding="button_R_front_corner">
             <constraints>
-              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="-&gt;"/>
             </properties>
           </component>
-        </children>
-      </grid>
-      <grid id="e9931" binding="panel_HC" layout-manager="GridLayoutManager" row-count="2" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="10" left="10" bottom="10" right="10"/>
-        <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
-        <properties/>
-        <border type="etched" title="Back stage cornercube"/>
-        <children>
-          <component id="e744b" class="javax.swing.JProgressBar" binding="progressBar_back_corner">
+          <component id="e54bf" class="javax.swing.JLabel" binding="maxLabel_front_corner">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <indeterminate value="false"/>
-              <stringPainted value="false"/>
-              <value value="0"/>
-            </properties>
-          </component>
-          <component id="6a59b" class="javax.swing.JButton" binding="button_LL_back_corner">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="&lt;-   &lt;-"/>
-            </properties>
-          </component>
-          <component id="a5f57" class="javax.swing.JButton" binding="button_L_back_corner">
-            <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="&lt;-"/>
-            </properties>
-          </component>
-          <component id="59dc3" class="javax.swing.JLabel" binding="posLabel_HC">
-            <constraints>
-              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
-                <preferred-size width="100" height="-1"/>
-              </grid>
-            </constraints>
-            <properties>
-              <text value="0"/>
-            </properties>
-          </component>
-          <component id="afff6" class="javax.swing.JButton" binding="button_R_back_corner">
-            <constraints>
-              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="-&gt;"/>
-            </properties>
-          </component>
-          <component id="41f31" class="javax.swing.JButton" binding="button_RR_back_corner">
-            <constraints>
-              <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="-&gt;   -&gt;"/>
+              <text value="max: 0"/>
             </properties>
           </component>
         </children>
       </grid>
-      <vspacer id="ed69f">
-        <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
-      </vspacer>
-      <vspacer id="24be1">
-        <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
-      </vspacer>
       <vspacer id="9aea2">
         <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
       </vspacer>
       <grid id="35629" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="10" left="10" bottom="10" right="10"/>
         <constraints>
-          <grid row="6" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties/>
@@ -165,15 +98,16 @@
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <majorTickSpacing value="10"/>
-              <maximum value="20"/>
+              <majorTickSpacing value="500"/>
+              <maximum value="1000"/>
               <minimum value="0"/>
+              <minorTickSpacing value="100"/>
               <orientation value="0"/>
               <paintLabels value="true"/>
               <paintTicks value="true"/>
               <paintTrack value="true"/>
               <snapToTicks value="false"/>
-              <value value="5"/>
+              <value value="200"/>
             </properties>
           </component>
           <component id="91b66" class="javax.swing.JSlider" binding="bigStepSlider">
@@ -182,13 +116,15 @@
             </constraints>
             <properties>
               <inverted value="false"/>
-              <majorTickSpacing value="40"/>
-              <maximum value="100"/>
-              <minimum value="20"/>
+              <majorTickSpacing value="9000"/>
+              <maximum value="10000"/>
+              <minimum value="1000"/>
+              <minorTickSpacing value="1000"/>
               <paintLabels value="true"/>
               <paintTicks value="true"/>
+              <paintTrack value="true"/>
               <snapToTicks value="false"/>
-              <value value="20"/>
+              <value value="2000"/>
               <valueIsAdjusting value="true"/>
             </properties>
           </component>
@@ -210,16 +146,10 @@
           </component>
         </children>
       </grid>
-      <vspacer id="80b41">
-        <constraints>
-          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
-      </vspacer>
-      <grid id="f46b4" binding="panel_VR" layout-manager="GridLayoutManager" row-count="2" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="f46b4" binding="panel_VR" layout-manager="GridLayoutManager" row-count="3" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="10" left="10" bottom="10" right="10"/>
         <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties/>
@@ -227,7 +157,7 @@
         <children>
           <component id="9dea" class="javax.swing.JProgressBar" binding="progressBar_front_roof">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <indeterminate value="false"/>
@@ -237,7 +167,7 @@
           </component>
           <component id="1aa7b" class="javax.swing.JButton" binding="button_L_front_roof">
             <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="&lt;-"/>
@@ -245,7 +175,7 @@
           </component>
           <component id="ac0b2" class="javax.swing.JLabel" binding="posLabel_VR">
             <constraints>
-              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
               </grid>
             </constraints>
@@ -255,7 +185,7 @@
           </component>
           <component id="d0fd" class="javax.swing.JButton" binding="button_RR_front_roof">
             <constraints>
-              <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="-&gt;   -&gt;"/>
@@ -263,7 +193,7 @@
           </component>
           <component id="831e3" class="javax.swing.JButton" binding="button_R_front_roof">
             <constraints>
-              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="-&gt;"/>
@@ -271,18 +201,26 @@
           </component>
           <component id="131d5" class="javax.swing.JButton" binding="button_LL_front_roof">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="&lt;-   &lt;-"/>
             </properties>
           </component>
+          <component id="5692c" class="javax.swing.JLabel" binding="maxLabel_front_roof">
+            <constraints>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="max: 0"/>
+            </properties>
+          </component>
         </children>
       </grid>
-      <grid id="9cc6f" binding="panel_HR" layout-manager="GridLayoutManager" row-count="2" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="9cc6f" binding="panel_HR" layout-manager="GridLayoutManager" row-count="3" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="10" left="10" bottom="10" right="10"/>
         <constraints>
-          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties/>
@@ -290,7 +228,7 @@
         <children>
           <component id="d5f15" class="javax.swing.JProgressBar" binding="progressBar_back_roof">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <indeterminate value="false"/>
@@ -300,7 +238,7 @@
           </component>
           <component id="61cd1" class="javax.swing.JButton" binding="button_LL_back_roof">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="&lt;-   &lt;-"/>
@@ -308,7 +246,7 @@
           </component>
           <component id="392bd" class="javax.swing.JButton" binding="button_L_back_roof">
             <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="&lt;-"/>
@@ -316,7 +254,7 @@
           </component>
           <component id="b362e" class="javax.swing.JLabel" binding="posLabel_HR">
             <constraints>
-              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
               </grid>
             </constraints>
@@ -326,7 +264,7 @@
           </component>
           <component id="8cdb3" class="javax.swing.JButton" binding="button_RR_back_roof">
             <constraints>
-              <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="-&gt;   -&gt;"/>
@@ -334,14 +272,99 @@
           </component>
           <component id="ebf72" class="javax.swing.JButton" binding="button_R_back_roof">
             <constraints>
-              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="-&gt;"/>
             </properties>
           </component>
+          <component id="1ba0c" class="javax.swing.JLabel" binding="maxLabel_back_roof">
+            <constraints>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="max: 0"/>
+            </properties>
+          </component>
         </children>
       </grid>
+      <grid id="e9931" binding="panel_HC" layout-manager="GridLayoutManager" row-count="3" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="10" left="10" bottom="10" right="10"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties/>
+        <border type="etched" title="Back stage cornercube"/>
+        <children>
+          <component id="e744b" class="javax.swing.JProgressBar" binding="progressBar_back_corner">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <indeterminate value="false"/>
+              <stringPainted value="false"/>
+              <value value="0"/>
+            </properties>
+          </component>
+          <component id="6a59b" class="javax.swing.JButton" binding="button_LL_back_corner">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="&lt;-   &lt;-"/>
+            </properties>
+          </component>
+          <component id="a5f57" class="javax.swing.JButton" binding="button_L_back_corner">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="&lt;-"/>
+            </properties>
+          </component>
+          <component id="59dc3" class="javax.swing.JLabel" binding="posLabel_HC">
+            <constraints>
+              <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="100" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value="0"/>
+            </properties>
+          </component>
+          <component id="afff6" class="javax.swing.JButton" binding="button_R_back_corner">
+            <constraints>
+              <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="-&gt;"/>
+            </properties>
+          </component>
+          <component id="41f31" class="javax.swing.JButton" binding="button_RR_back_corner">
+            <constraints>
+              <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="-&gt;   -&gt;"/>
+            </properties>
+          </component>
+          <component id="8ceb1" class="javax.swing.JLabel" binding="maxLabel_back_corner">
+            <constraints>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="max: 0"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <vspacer id="24be1">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+      </vspacer>
     </children>
   </grid>
 </form>

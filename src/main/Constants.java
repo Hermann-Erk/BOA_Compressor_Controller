@@ -16,8 +16,8 @@ public class Constants {
     public static final String calibrationFilePath3H = "C:\\Users\\Hermann\\Documents\\GitHub\\BOA_Compressor_Controller\\calibration\\calibrationFile3H.txt";
 
 
-    public static int SMALL_STEP = 5;
-    public static int BIG_STEP = 20;
+    public static int SMALL_STEP = 200;
+    public static int BIG_STEP = 2000;
 
     //public static final String STEP_CMD = "b";
     public static final String STEP_CMD = "m";

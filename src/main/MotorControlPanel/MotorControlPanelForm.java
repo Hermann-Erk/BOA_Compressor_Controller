@@ -37,6 +37,10 @@ public class MotorControlPanelForm {
     JLabel posLabel_HR;
     JSlider smallStepSlider;
     JSlider bigStepSlider;
+    JLabel maxLabel_front_corner;
+    JLabel maxLabel_back_corner;
+    JLabel maxLabel_back_roof;
+    JLabel maxLabel_front_roof;
 
     public MotorControlPanelForm(){
 

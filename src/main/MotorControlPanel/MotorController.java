@@ -35,10 +35,10 @@ public class MotorController implements ArduinoResponseListener, CommandSenderCo
         this.motorControlPanelForm.progressBar_front_corner.setForeground(Constants.NOT_MOVING_PROGRESS_BAR_COLOR);
         //this.motorControlPanelForm.progressBar_front_corner.setValue(50);
 
-        this.motorControlPanelForm.button_LL_front_roof.getModel().addChangeListener(new ButtonModelListener(Motor.VR, "B", this));
-        this.motorControlPanelForm.button_L_front_roof.getModel().addChangeListener(new ButtonModelListener(Motor.VR, "S", this));
-        this.motorControlPanelForm.button_RR_front_roof.getModel().addChangeListener(new ButtonModelListener(Motor.VR, "-B", this));
-        this.motorControlPanelForm.button_R_front_roof.getModel().addChangeListener(new ButtonModelListener(Motor.VR, "-S", this));
+        this.motorControlPanelForm.button_LL_front_roof.getModel().addChangeListener(new ButtonModelListener(Motor.VR, "-B", this));
+        this.motorControlPanelForm.button_L_front_roof.getModel().addChangeListener(new ButtonModelListener(Motor.VR, "-S", this));
+        this.motorControlPanelForm.button_RR_front_roof.getModel().addChangeListener(new ButtonModelListener(Motor.VR, "B", this));
+        this.motorControlPanelForm.button_R_front_roof.getModel().addChangeListener(new ButtonModelListener(Motor.VR, "S", this));
         this.motorControlPanelForm.progressBar_front_roof.setForeground(Constants.NOT_MOVING_PROGRESS_BAR_COLOR);
 
         this.motorControlPanelForm.button_LL_back_corner.getModel().addChangeListener(new ButtonModelListener(Motor.HC, "-B", this));
@@ -47,10 +47,10 @@ public class MotorController implements ArduinoResponseListener, CommandSenderCo
         this.motorControlPanelForm.button_R_back_corner.getModel().addChangeListener(new ButtonModelListener(Motor.HC, "S", this));
         this.motorControlPanelForm.progressBar_back_corner.setForeground(Constants.NOT_MOVING_PROGRESS_BAR_COLOR);
 
-        this.motorControlPanelForm.button_LL_back_roof.getModel().addChangeListener(new ButtonModelListener(Motor.HR, "B", this));
-        this.motorControlPanelForm.button_L_back_roof.getModel().addChangeListener(new ButtonModelListener(Motor.HR, "S", this));
-        this.motorControlPanelForm.button_RR_back_roof.getModel().addChangeListener(new ButtonModelListener(Motor.HR, "-B", this));
-        this.motorControlPanelForm.button_R_back_roof.getModel().addChangeListener(new ButtonModelListener(Motor.HR, "-S", this));
+        this.motorControlPanelForm.button_LL_back_roof.getModel().addChangeListener(new ButtonModelListener(Motor.HR, "-B", this));
+        this.motorControlPanelForm.button_L_back_roof.getModel().addChangeListener(new ButtonModelListener(Motor.HR, "-S", this));
+        this.motorControlPanelForm.button_RR_back_roof.getModel().addChangeListener(new ButtonModelListener(Motor.HR, "B", this));
+        this.motorControlPanelForm.button_R_back_roof.getModel().addChangeListener(new ButtonModelListener(Motor.HR, "S", this));
         this.motorControlPanelForm.progressBar_back_roof.setForeground(Constants.NOT_MOVING_PROGRESS_BAR_COLOR);
 
         this.motorControlPanelForm.smallStepSlider.addChangeListener(e -> setSmallStep(e));
@@ -97,15 +97,19 @@ public class MotorController implements ArduinoResponseListener, CommandSenderCo
                 switch(motor){
                     case VC:
                         this.motorControlPanelForm.progressBar_front_corner.setMaximum(value);
+                        this.motorControlPanelForm.maxLabel_front_corner.setText(value + "");
                         break;
                     case VR:
                         this.motorControlPanelForm.progressBar_front_roof.setMaximum(value);
+                        this.motorControlPanelForm.maxLabel_front_roof.setText(value + "");
                         break;
                     case HC:
                         this.motorControlPanelForm.progressBar_back_corner.setMaximum(value);
+                        this.motorControlPanelForm.maxLabel_back_corner.setText(value + "");
                         break;
                     case HR:
                         this.motorControlPanelForm.progressBar_back_roof.setMaximum(value);
+                        this.motorControlPanelForm.maxLabel_back_roof.setText(value + "");
                         break;
                 }
                 break;

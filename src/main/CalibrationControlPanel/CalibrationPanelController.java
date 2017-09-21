@@ -78,13 +78,17 @@ public class CalibrationPanelController implements CommandSenderConnected, Ardui
         PositionSet positions = calCalculator.calculatePosition(wavelength2H, wavelength3H);
 
         if (positions.getCornerCubeFrontPos() != -1) {
-            commandSenderFront.sendCommand("1" + Constants.ABS_MOVE_CMD + positions.getCornerCubeFrontPos());
             commandSenderFront.sendCommand("2" + Constants.ABS_MOVE_CMD + positions.getRoofMirrorFrontPos());
+            // workaround for the arduino to recognise and accept both commands TODO check if this can be done better in the arduino program
+            commandSenderFront.sendCommand("1" + Constants.ABS_MOVE_CMD + positions.getCornerCubeFrontPos());
+            commandSenderFront.sendCommand("1" + Constants.ABS_MOVE_CMD + positions.getCornerCubeFrontPos());
+
         }
 
         if (positions.getCornerCubeBackPos() != -1) {
-            commandSenderBack.sendCommand("1" + Constants.ABS_MOVE_CMD + positions.getCornerCubeBackPos());
             commandSenderBack.sendCommand("2" + Constants.ABS_MOVE_CMD + positions.getGetRoofMirrorBackPos());
+            commandSenderBack.sendCommand("1" + Constants.ABS_MOVE_CMD + positions.getCornerCubeBackPos());
+            commandSenderBack.sendCommand("1" + Constants.ABS_MOVE_CMD + positions.getCornerCubeBackPos());
             System.out.println("Stages are being set for the given wavelength.");
         }
     }
@@ -117,14 +121,18 @@ public class CalibrationPanelController implements CommandSenderConnected, Ardui
                 switch(motor){
                     case VC:
                     case VR:
-                        this.calibrationPanelForm.setWavelength2HButton.setEnabled(true);
-                        this.calibrationPanelForm.setBothNOPAsCheckBox.setEnabled(true);
-                        break;
+                        if(this.calibrationData2H != null) {
+                            this.calibrationPanelForm.setWavelength2HButton.setEnabled(true);
+                            this.calibrationPanelForm.setBothNOPAsCheckBox.setEnabled(true);
+                            break;
+                        }
                     case HC:
                     case HR:
-                        this.calibrationPanelForm.setWavelength3HButton.setEnabled(true);
-                        this.calibrationPanelForm.setBothNOPAsCheckBox.setEnabled(true);
-                        break;
+                        if(this.calibrationData3H != null) {
+                            this.calibrationPanelForm.setWavelength3HButton.setEnabled(true);
+                            this.calibrationPanelForm.setBothNOPAsCheckBox.setEnabled(true);
+                            break;
+                        }
                 }
                 break;
             default:
