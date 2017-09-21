@@ -8,11 +8,12 @@ import main.SerialConnection.CommandSenderInterface;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.util.Observable;
 
 /**
  * Created by Hermann on 10.09.2017.
  */
-public class CommandInterfacePanelController implements CommandSenderConnected, ArduinoResponseListener {
+public class CommandInterfacePanelController extends Observable implements CommandSenderConnected, ArduinoResponseListener {
     private CommandInterfacePanelForm commandInterfacePanelForm;
     private CommandSenderInterface commandSenderFront;
     private CommandSenderInterface commandSenderBack;
@@ -96,23 +97,28 @@ public class CommandInterfacePanelController implements CommandSenderConnected, 
     private void sendPositionCommand(Object eventObject){
         String motorString = "";
         CommandSenderInterface sender = null;
+        String arduino = "";
 
         switch(this.commandInterfacePanelForm.comboBox1.getSelectedIndex()){
             case 0:
                 motorString = "1";
                 sender = commandSenderFront;
+                arduino = "front";
                 break;
             case 1:
                 motorString = "2";
                 sender = commandSenderFront;
+                arduino = "front";
                 break;
             case 2:
                 motorString = "1";
                 sender = commandSenderBack;
+                arduino = "back";
                 break;
             case 3:
                 motorString = "2";
                 sender = commandSenderBack;
+                arduino = "back";
                 break;
         }
 
@@ -126,6 +132,8 @@ public class CommandInterfacePanelController implements CommandSenderConnected, 
             }else{
                 if(eventObject == this.commandInterfacePanelForm.referenceToZeroButton){
                     commandAbbreviation = Constants.REFERENCE_CMD;
+                    setChanged();
+                    notifyObservers(Motor.getAbbreviation(arduino, (Integer.parseInt(motorString) - 1) + ""));
                 }else{
                     if(eventObject == this.commandInterfacePanelForm.measureStageButton){
                         commandAbbreviation = Constants.MEASURE_STAGE_CMD;

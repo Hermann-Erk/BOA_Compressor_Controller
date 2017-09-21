@@ -169,6 +169,8 @@ public abstract class CompressorController implements Observer {
                 new ArduinoConnectionListener[] {connectionPanelController});
         connectionHandlerFront.addObserver(arduinoConnectionObserver);
         connectionHandlerBack.addObserver(arduinoConnectionObserver);
+
+        commandInterfacePanelController.addObserver(motorController);
     }
 
     public static SerialPort getSerialPortFront(){

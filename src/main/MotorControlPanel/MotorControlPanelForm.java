@@ -41,6 +41,10 @@ public class MotorControlPanelForm {
     JLabel maxLabel_back_corner;
     JLabel maxLabel_back_roof;
     JLabel maxLabel_front_roof;
+    JLabel refLabel_back_corner;
+    JLabel refLabel_back_roof;
+    JLabel refLabel_front_corner;
+    JLabel refLabel_front_roof;
 
     public MotorControlPanelForm(){
 

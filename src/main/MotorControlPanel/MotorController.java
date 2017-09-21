@@ -10,12 +10,14 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import java.awt.*;
 import java.beans.PropertyChangeEvent;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Timer;
 
 /**
  * Created by Hermann on 04.09.2017.
  */
-public class MotorController implements ArduinoResponseListener, CommandSenderConnected {
+public class MotorController implements ArduinoResponseListener, CommandSenderConnected, Observer {
     private MotorControlPanelForm motorControlPanelForm;
     private CommandSenderInterface commandSenderFront;
     private CommandSenderInterface commandSenderBack;
@@ -177,7 +179,43 @@ public class MotorController implements ArduinoResponseListener, CommandSenderCo
                         break;
                 }
                 break;
+            case Constants.ARDUINO_COULD_NOT_LOAD_FROM_EEPROM_RESPONSE:
+                switch(motor){
+                    case VC:
+                    case VR:
+                        this.motorControlPanelForm.progressBar_front_corner.setForeground(Constants.COULDNT_LOAD_FROM_EEPROM_COLOR);
+                        this.motorControlPanelForm.progressBar_front_roof.setForeground(Constants.COULDNT_LOAD_FROM_EEPROM_COLOR);
+                        this.motorControlPanelForm.refLabel_front_corner.setText("Ref. to zero!");
+                        this.motorControlPanelForm.refLabel_front_roof.setText("Ref. to zero!");
+                        break;
+                    case HC:
+                    case HR:
+                        this.motorControlPanelForm.progressBar_back_corner.setForeground(Constants.COULDNT_LOAD_FROM_EEPROM_COLOR);
+                        this.motorControlPanelForm.progressBar_back_roof.setForeground(Constants.COULDNT_LOAD_FROM_EEPROM_COLOR);
+                        this.motorControlPanelForm.refLabel_back_corner.setText("Ref. to zero!");
+                        this.motorControlPanelForm.refLabel_back_roof.setText("Ref. to zero!");
+                        break;
+                }
             default:
+                break;
+        }
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        Motor motor = (Motor) arg;
+        switch(motor){
+            case VC:
+                this.motorControlPanelForm.refLabel_front_corner.setText("");
+                break;
+            case VR:
+                this.motorControlPanelForm.refLabel_front_roof.setText("");
+                break;
+            case HC:
+                this.motorControlPanelForm.refLabel_back_corner.setText("");
+                break;
+            case HR:
+                this.motorControlPanelForm.refLabel_back_roof.setText("");
                 break;
         }
     }
