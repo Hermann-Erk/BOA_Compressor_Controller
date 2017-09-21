@@ -26,12 +26,14 @@ public class CalibrationFileParser {
      * @throws IOException
      */
     public ArrayList<int[]> readCalibrationFile(String  filepathString) throws IOException {
+        calibrationData = new ArrayList<>();
         File filepath = new File(filepathString);
         try (Scanner scanner =  new Scanner(filepath)){
             while (scanner.hasNextLine()){
                 processLine(scanner.nextLine());
             }
         }
+
         sortData(calibrationData);
         return calibrationData;
     }

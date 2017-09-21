@@ -54,6 +54,7 @@ public class CalibrationPanelController implements CommandSenderConnected, Ardui
     }
 
     private void setMotorsAccordingToCalibration(ActionEvent event) {
+
         CalibrationCalculator calCalculator = new CalibrationCalculator(calibrationData2H, calibrationData3H);
 
         int wavelength2H = -1;

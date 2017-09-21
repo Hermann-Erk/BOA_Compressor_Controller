@@ -35,4 +35,5 @@ public class Constants {
 
     public static final Color MOVING_PROGRESS_BAR_COLOR = Color.ORANGE;
     public static final Color NOT_MOVING_PROGRESS_BAR_COLOR = Color.GREEN;
+    public static final Color COULDNT_LOAD_FROM_EEPROM_COLOR = Color.RED;
 }

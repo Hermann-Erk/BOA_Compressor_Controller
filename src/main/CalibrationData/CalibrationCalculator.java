@@ -103,7 +103,6 @@ public class CalibrationCalculator {
         ArrayList<int[]> calData;
         if (nopa == 2) {
             calData = calibrationData_2H;
-            System.out.println("test");
         } else {
             calData = calibrationData_3H;
         }
