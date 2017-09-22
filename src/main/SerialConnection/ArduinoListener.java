@@ -49,7 +49,6 @@ public class ArduinoListener implements SerialPortEventListener {
 
                 Motor motor = Motor.getAbbreviation(arduino, motorString);
 
-                //TODO send motor, command and number to all listeners
                 for (ArduinoResponseListener listener: responseListeners){
                     listener.arduinoResponse(motor, command, number);
                 }

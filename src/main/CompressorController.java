@@ -142,7 +142,6 @@ public abstract class CompressorController implements Observer {
             // If there is no connection, a NullPointrException is caught
             //e.printStackTrace();
             frontIsConnected = false;
-            // TODO dummyController in case of failed connection
         }
 
         try {
@@ -154,7 +153,6 @@ public abstract class CompressorController implements Observer {
             // If there is no connection, a NullPointrException is caught
             //e.printStackTrace();
             backIsConnected = false;
-            // TODO dummyController in case of failed connection
         }
     }
 

@@ -70,7 +70,6 @@ public class MotorController implements ArduinoResponseListener, CommandSenderCo
         }
     }
 
-    // TODO update labels (and progress bars)
     public synchronized void arduinoResponse(Motor motor, String command, int value){
         switch(command){
             case Constants.POS_RESPONSE:

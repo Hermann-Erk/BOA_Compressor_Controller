@@ -69,11 +69,15 @@ public class CalibrationCalculator {
             }
 
             if(is2HinSecondHarmonicMode){
-                // TODO add 30cm of beam path to the 3H roof mirror
+                //(193209 steps)/(96.5 cm) for the 3H NOPA i.e. 60065 steps for 30 cm
+                roofMirrorPos3H =+ 60065;
+                System.out.println("test2H");
             }
 
             if(is3HinSecondHarmonicMode){
-                // TODO add 30cm of beam path to the 2H roof mirror
+                //(193877 steps)/(96.9 cm) for the 2H NOPA i.e. 60024 steps for 30 cm
+                roofMirrorPos2H =+ 60024;
+                System.out.println("test3H");
             }
 
             // Due to the longer beam path within the nopa during the use of the second harmonic

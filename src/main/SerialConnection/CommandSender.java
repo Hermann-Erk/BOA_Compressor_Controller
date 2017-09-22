@@ -18,7 +18,6 @@ public class CommandSender implements  CommandSenderInterface{
     }
 
     public synchronized void sendCommand(String commandString){
-        // TODO test for functionality... this was done to separate different commands
         try {
             String commandStringPlusLineBreak = commandString + "\n";
             outputStream.write(commandStringPlusLineBreak.getBytes());

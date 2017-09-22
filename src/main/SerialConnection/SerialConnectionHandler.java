@@ -41,7 +41,6 @@ public class SerialConnectionHandler extends Observable{
         return serialPort;
     }
 
-    // TODO call upon closing the program
     public void closeConnection() throws NullPointerException{
         setChanged();
         notifyObservers(null);

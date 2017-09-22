@@ -24,7 +24,6 @@ public enum Motor {
         }
     }
 
-    // TODO check if the motor numbers in the Arduino program correspond to the numbers below (1 and 2)
     public int getMotorNumber(){
         switch(this){
             case VC:

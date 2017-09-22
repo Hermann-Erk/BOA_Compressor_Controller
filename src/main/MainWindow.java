@@ -40,6 +40,6 @@ public class MainWindow extends JFrame {
     }
 
     private void createUIComponents() {
-        // TODO: place custom component creation code here
+
     }
 }
