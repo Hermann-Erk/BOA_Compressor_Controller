@@ -14,7 +14,7 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties/>
-        <border type="etched" title="Front stage cornercube"/>
+        <border type="etched" title="Front Stage Cornercube"/>
         <children>
           <component id="221b6" class="javax.swing.JProgressBar" binding="progressBar_front_corner">
             <constraints>
@@ -70,10 +70,10 @@
           </component>
           <component id="e54bf" class="javax.swing.JLabel" binding="maxLabel_front_corner">
             <constraints>
-              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="max: 0"/>
+              <text value="Max: 0"/>
             </properties>
           </component>
           <component id="ef1e1" class="javax.swing.JLabel" binding="refLabel_front_corner">
@@ -100,7 +100,7 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties/>
-        <border type="etched" title="Jog speed"/>
+        <border type="etched" title="Jog Speed"/>
         <children>
           <component id="ed636" class="javax.swing.JSlider" binding="smallStepSlider">
             <constraints>
@@ -142,7 +142,7 @@
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Small step"/>
+              <text value="Small Step"/>
             </properties>
           </component>
           <component id="3e5c" class="javax.swing.JLabel">
@@ -150,7 +150,7 @@
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Big step"/>
+              <text value="Big Step"/>
             </properties>
           </component>
         </children>
@@ -162,7 +162,7 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties/>
-        <border type="etched" title="Front stage roofmirror"/>
+        <border type="etched" title="Front Stage Roofmirror"/>
         <children>
           <component id="9dea" class="javax.swing.JProgressBar" binding="progressBar_front_roof">
             <constraints>
@@ -218,10 +218,10 @@
           </component>
           <component id="5692c" class="javax.swing.JLabel" binding="maxLabel_front_roof">
             <constraints>
-              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="max: 0"/>
+              <text value="Max: 0"/>
             </properties>
           </component>
           <component id="3ddf4" class="javax.swing.JLabel" binding="refLabel_front_roof">
@@ -242,7 +242,7 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties/>
-        <border type="etched" title="Back stage roofmirror"/>
+        <border type="etched" title="Back Stage Roofmirror"/>
         <children>
           <component id="d5f15" class="javax.swing.JProgressBar" binding="progressBar_back_roof">
             <constraints>
@@ -298,10 +298,10 @@
           </component>
           <component id="1ba0c" class="javax.swing.JLabel" binding="maxLabel_back_roof">
             <constraints>
-              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="max: 0"/>
+              <text value="Max: 0"/>
             </properties>
           </component>
           <component id="63dba" class="javax.swing.JLabel" binding="refLabel_back_roof">
@@ -322,7 +322,7 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties/>
-        <border type="etched" title="Back stage cornercube"/>
+        <border type="etched" title="Back Stage Cornercube"/>
         <children>
           <component id="e744b" class="javax.swing.JProgressBar" binding="progressBar_back_corner">
             <constraints>
@@ -378,10 +378,10 @@
           </component>
           <component id="8ceb1" class="javax.swing.JLabel" binding="maxLabel_back_corner">
             <constraints>
-              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="max: 0"/>
+              <text value="Max: 0"/>
             </properties>
           </component>
           <component id="c5ce5" class="javax.swing.JLabel" binding="refLabel_back_corner">
