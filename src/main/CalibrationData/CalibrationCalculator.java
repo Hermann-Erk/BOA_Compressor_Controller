@@ -70,14 +70,12 @@ public class CalibrationCalculator {
 
             if(is2HinSecondHarmonicMode){
                 //(193209 steps)/(96.5 cm) for the 3H NOPA i.e. 60065 steps for 30 cm
-                roofMirrorPos3H =+ 60065;
-                System.out.println("test2H");
+                roofMirrorPos3H = roofMirrorPos3H + 60065;
             }
 
             if(is3HinSecondHarmonicMode){
                 //(193877 steps)/(96.9 cm) for the 2H NOPA i.e. 60024 steps for 30 cm
-                roofMirrorPos2H =+ 60024;
-                System.out.println("test3H");
+                roofMirrorPos2H = roofMirrorPos2H + 60024;
             }
 
             // Due to the longer beam path within the nopa during the use of the second harmonic
@@ -97,6 +95,7 @@ public class CalibrationCalculator {
                 }
             }
         }
+
 
         PositionSet position = new PositionSet(cornerCubePos2H, cornerCubePos3H, roofMirrorPos2H, roofMirrorPos3H);
         return  position;

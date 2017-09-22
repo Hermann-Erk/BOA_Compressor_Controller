@@ -98,19 +98,19 @@ public class MotorController implements ArduinoResponseListener, CommandSenderCo
                 switch(motor){
                     case VC:
                         this.motorControlPanelForm.progressBar_front_corner.setMaximum(value);
-                        this.motorControlPanelForm.maxLabel_front_corner.setText("Max" + value + "");
+                        this.motorControlPanelForm.maxLabel_front_corner.setText("Max: " + value + "");
                         break;
                     case VR:
                         this.motorControlPanelForm.progressBar_front_roof.setMaximum(value);
-                        this.motorControlPanelForm.maxLabel_front_roof.setText("Max" + value + "");
+                        this.motorControlPanelForm.maxLabel_front_roof.setText("Max: " + value + "");
                         break;
                     case HC:
                         this.motorControlPanelForm.progressBar_back_corner.setMaximum(value);
-                        this.motorControlPanelForm.maxLabel_back_corner.setText("Max" + value + "");
+                        this.motorControlPanelForm.maxLabel_back_corner.setText("Max: " + value + "");
                         break;
                     case HR:
                         this.motorControlPanelForm.progressBar_back_roof.setMaximum(value);
-                        this.motorControlPanelForm.maxLabel_back_roof.setText("Max" + value + "");
+                        this.motorControlPanelForm.maxLabel_back_roof.setText("Max: " + value + "");
                         break;
                 }
                 break;
