@@ -23,6 +23,11 @@ public class CommandInterfacePanelController extends Observable implements Comma
     private boolean frontRoofmirrorIsMoving = false;
     private boolean backRoofmirrorIsMoving = false;
 
+    private int maxPosCornerFront = 0;
+    private int maxPosRoofFront = 0;
+    private int maxPosCornerBack = 0;
+    private int maxPosRoofBack = 0;
+
     public CommandInterfacePanelController(CommandInterfacePanelForm form, CommandSenderInterface frontSender,
                                            CommandSenderInterface backSender){
         this.commandInterfacePanelForm = form;
@@ -33,6 +38,9 @@ public class CommandInterfacePanelController extends Observable implements Comma
         this.commandInterfacePanelForm.relMoveButton.addActionListener(e -> sendPositionCommand(e.getSource()));
         this.commandInterfacePanelForm.measureStageButton.addActionListener(e -> sendPositionCommand(e.getSource()));
         this.commandInterfacePanelForm.referenceToZeroButton.addActionListener(e -> sendPositionCommand(e.getSource()));
+        this.commandInterfacePanelForm.moveToMaximumButton.addActionListener(e -> sendPositionCommand(e.getSource()));
+        this.commandInterfacePanelForm.moveToZeroButton.addActionListener(e -> sendPositionCommand(e.getSource()));
+
 
         this.commandInterfacePanelForm.comboBox1.addActionListener(e -> enableAndDisableComponents(e));
 
@@ -78,6 +86,8 @@ public class CommandInterfacePanelController extends Observable implements Comma
         this.commandInterfacePanelForm.absMoveButton.setEnabled(false);
         this.commandInterfacePanelForm.referenceToZeroButton.setEnabled(false);
         this.commandInterfacePanelForm.measureStageButton.setEnabled(false);
+        this.commandInterfacePanelForm.moveToZeroButton.setEnabled(false);
+        this.commandInterfacePanelForm.moveToMaximumButton.setEnabled(false);
     }
 
     private void enableButtons(){
@@ -85,6 +95,8 @@ public class CommandInterfacePanelController extends Observable implements Comma
         this.commandInterfacePanelForm.absMoveButton.setEnabled(true);
         this.commandInterfacePanelForm.referenceToZeroButton.setEnabled(true);
         this.commandInterfacePanelForm.measureStageButton.setEnabled(true);
+        this.commandInterfacePanelForm.moveToZeroButton.setEnabled(true);
+        this.commandInterfacePanelForm.moveToMaximumButton.setEnabled(true);
     }
 
     private void stopMotors(){
@@ -124,7 +136,9 @@ public class CommandInterfacePanelController extends Observable implements Comma
 
         String commandAbbreviation = "";
 
-        if(eventObject == this.commandInterfacePanelForm.absMoveButton){
+        if(eventObject == this.commandInterfacePanelForm.absMoveButton
+                ||eventObject == this.commandInterfacePanelForm.moveToZeroButton
+                ||eventObject == this.commandInterfacePanelForm.moveToMaximumButton){
             commandAbbreviation = Constants.ABS_MOVE_CMD;
         }else{
             if(eventObject == this.commandInterfacePanelForm.relMoveButton){
@@ -143,7 +157,11 @@ public class CommandInterfacePanelController extends Observable implements Comma
         }
 
         int position = 0;
-        if(!(commandAbbreviation.equals(Constants.MEASURE_STAGE_CMD) || commandAbbreviation.equals(Constants.REFERENCE_CMD))){
+
+        if(!(commandAbbreviation.equals(Constants.MEASURE_STAGE_CMD) || commandAbbreviation.equals(Constants.REFERENCE_CMD)
+            || eventObject == this.commandInterfacePanelForm.moveToMaximumButton
+            || eventObject == this.commandInterfacePanelForm.moveToZeroButton)){
+
             try {
                 position = Integer.parseInt(this.commandInterfacePanelForm.positionValueField.getText());
             } catch (NumberFormatException exc) {
@@ -151,6 +169,29 @@ public class CommandInterfacePanelController extends Observable implements Comma
                 return;
             }
         }
+
+        if(eventObject == this.commandInterfacePanelForm.moveToZeroButton){
+            position = 0;
+        }
+
+        if(eventObject == this.commandInterfacePanelForm.moveToMaximumButton){
+            switch(this.commandInterfacePanelForm.comboBox1.getSelectedIndex()){
+                case 0:
+                    position = this.maxPosCornerFront;
+                    break;
+                case 1:
+                    position = this.maxPosRoofFront;
+                    break;
+                case 2:
+                    position = this.maxPosCornerBack;
+                    break;
+                case 3:
+                    position = this.maxPosRoofBack;
+                    break;
+            }
+        }
+
+
 
         try {
             sender.sendCommand(motorString + commandAbbreviation + position);
@@ -221,6 +262,23 @@ public class CommandInterfacePanelController extends Observable implements Comma
                             if (this.commandInterfacePanelForm.comboBox1.getSelectedIndex() == 3) {
                                 enableButtons();
                             }
+                        break;
+                }
+                break;
+            case Constants.MAX_LIMIT_RESPONSE:
+                //System.out.println(motor);
+                switch(motor){
+                    case VC:
+                        this.maxPosCornerFront = value;
+                        break;
+                    case VR:
+                        this.maxPosRoofFront = value;
+                        break;
+                    case HC:
+                        this.maxPosCornerBack = value;
+                        break;
+                    case HR:
+                        this.maxPosRoofBack = value;
                         break;
                 }
                 break;

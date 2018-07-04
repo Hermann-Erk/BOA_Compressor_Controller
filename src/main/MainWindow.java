@@ -23,7 +23,7 @@ public class MainWindow extends JFrame {
         super();
 
         setContentPane(rootPanel);
-        this.setTitle("BOA Prism Compressor Controller");
+        this.setTitle("Prism Compressor Controller");
         this.setVisible(true);
         pack();
 

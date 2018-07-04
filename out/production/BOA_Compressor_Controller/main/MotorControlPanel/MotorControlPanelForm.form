@@ -14,7 +14,7 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties/>
-        <border type="etched" title="2H-Nopa Stage Prism"/>
+        <border type="etched" title="Front Stage Cornercube"/>
         <children>
           <component id="221b6" class="javax.swing.JProgressBar" binding="progressBar_front_corner">
             <constraints>
@@ -162,7 +162,7 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties/>
-        <border type="etched" title="2H-Nopa Stage Roofmirror"/>
+        <border type="etched" title="Front Stage Roofmirror"/>
         <children>
           <component id="9dea" class="javax.swing.JProgressBar" binding="progressBar_front_roof">
             <constraints>
@@ -242,7 +242,7 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties/>
-        <border type="etched" title="3H-Nopa Stage Roofmirror"/>
+        <border type="etched" title="Back Stage Roofmirror"/>
         <children>
           <component id="d5f15" class="javax.swing.JProgressBar" binding="progressBar_back_roof">
             <constraints>
@@ -322,7 +322,7 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties/>
-        <border type="etched" title="3H-Nopa Stage Prism"/>
+        <border type="etched" title="Back Stage Cornercube"/>
         <children>
           <component id="e744b" class="javax.swing.JProgressBar" binding="progressBar_back_corner">
             <constraints>

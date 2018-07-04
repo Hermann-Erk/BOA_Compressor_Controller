@@ -15,4 +15,6 @@ public class CommandInterfacePanelForm {
     private JPanel movementPanel;
     JButton measureStageButton;
     JButton referenceToZeroButton;
+    JButton moveToMaximumButton;
+    JButton moveToZeroButton;
 }
