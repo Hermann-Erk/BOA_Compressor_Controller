@@ -45,6 +45,10 @@ public class MotorControlPanelForm {
     JLabel refLabel_back_roof;
     JLabel refLabel_front_corner;
     JLabel refLabel_front_roof;
+    JLabel posLabel_HC_cm;
+    JLabel posLabel_VC_cm;
+    JLabel posLabel_HR_cm;
+    JLabel posLabel_VR_cm;
 
     public MotorControlPanelForm(){
 

@@ -32,16 +32,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PositionSet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/CalibrationData/PositionSet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CalibrationCalculator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/CalibrationData/CalibrationCalculator.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -59,11 +49,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/MainWindow.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="139">
               <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MotorControlPanelForm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/MotorControlPanel/MotorControlPanelForm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -99,11 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MotorController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MotorController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/MotorControlPanel/MotorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="110" column="1" lean-forward="false" selection-start-line="110" selection-start-column="1" selection-end-line="110" selection-end-column="1" />
+            <state relative-caret-position="233">
+              <caret line="90" column="47" lean-forward="false" selection-start-line="90" selection-start-column="47" selection-end-line="90" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -136,7 +136,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/MotorControlPanel/MotorControlPanelForm.java" />
         <option value="$PROJECT_DIR$/src/main/Constants.java" />
         <option value="$PROJECT_DIR$/src/main/CalibrationControlPanel/CalibrationPanelController.java" />
         <option value="$PROJECT_DIR$/src/main/CalibrationData/CalibrationFileParser.java" />
@@ -146,18 +145,19 @@
         <option value="$PROJECT_DIR$/src/main/SerialConnection/CommandSender.java" />
         <option value="$PROJECT_DIR$/src/main/SerialConnection/SerialConnectionHandler.java" />
         <option value="$PROJECT_DIR$/src/main/CalibrationControlPanel/CalibrationPanelForm.form" />
-        <option value="$PROJECT_DIR$/src/main/MotorControlPanel/MotorController.java" />
         <option value="$PROJECT_DIR$/src/main/ArduinoConnectedPanel/ConnectedPanelForm.form" />
         <option value="$PROJECT_DIR$/src/main/VisualizationPanel/VisualizationForm.form" />
         <option value="$PROJECT_DIR$/src/main/VisualizationPanel/VisualizationForm.java" />
         <option value="$PROJECT_DIR$/src/main/MainWindow.form" />
         <option value="$PROJECT_DIR$/src/tsetestse.java" />
-        <option value="$PROJECT_DIR$/src/main/MotorControlPanel/MotorControlPanelForm.form" />
         <option value="$PROJECT_DIR$/src/main/CalibrationData/CalibrationCalculator.java" />
         <option value="$PROJECT_DIR$/src/main/CommandInterfacePanel/CommandInterfacePanelForm.java" />
         <option value="$PROJECT_DIR$/src/main/CommandInterfacePanel/CommandInterfacePanelForm.form" />
         <option value="$PROJECT_DIR$/src/main/CommandInterfacePanel/CommandInterfacePanelController.java" />
         <option value="$PROJECT_DIR$/src/main/MainWindow.java" />
+        <option value="$PROJECT_DIR$/src/main/MotorControlPanel/MotorControlPanelForm.form" />
+        <option value="$PROJECT_DIR$/src/main/MotorControlPanel/MotorControlPanelForm.java" />
+        <option value="$PROJECT_DIR$/src/main/MotorControlPanel/MotorController.java" />
       </list>
     </option>
   </component>
@@ -845,12 +845,12 @@
       <workItem from="1506073537307" duration="5268000" />
       <workItem from="1506331670920" duration="1649000" />
       <workItem from="1516564305197" duration="1207000" />
-      <workItem from="1530694156416" duration="7372000" />
+      <workItem from="1530694156416" duration="8644000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46784000" />
+    <option name="totallyTimeSpent" value="48056000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -874,7 +874,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.221843" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22013652" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1015,13 +1015,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/MotorControlPanel/MotorControlPanelForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="50" column="5" lean-forward="false" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1242,11 +1235,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/MotorControlPanel/MotorControlPanelForm.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/CalibrationData/PositionSet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1267,14 +1255,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-85">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/MotorControlPanel/MotorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="110" column="1" lean-forward="false" selection-start-line="110" selection-start-column="1" selection-end-line="110" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1309,6 +1289,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="139">
           <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/MotorControlPanel/MotorControlPanelForm.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/MotorControlPanel/MotorControlPanelForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/MotorControlPanel/MotorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="90" column="47" lean-forward="false" selection-start-line="90" selection-start-column="47" selection-end-line="90" selection-end-column="47" />
           <folding />
         </state>
       </provider>

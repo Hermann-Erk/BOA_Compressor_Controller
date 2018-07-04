@@ -73,23 +73,38 @@ public class MotorController implements ArduinoResponseListener, CommandSenderCo
     public synchronized void arduinoResponse(Motor motor, String command, int value){
         switch(command){
             case Constants.POS_RESPONSE:
+                double value_in_cm = 0;
                 //System.out.println("testest");
                 switch(motor){
                     case VC:
                         this.motorControlPanelForm.posLabel_VC.setText("" + value);
                         this.motorControlPanelForm.progressBar_front_corner.setValue(value);
+                        value_in_cm = 0.0002507095* value;
+                        value_in_cm = Math.round(value_in_cm*10)/10.0;
+                        this.motorControlPanelForm.posLabel_VC_cm.setText("(" + value_in_cm + " cm)");
                         break;
                     case VR:
                         this.motorControlPanelForm.posLabel_VR.setText("" + value);
                         this.motorControlPanelForm.progressBar_front_roof.setValue(value);
+                        value_in_cm = 0.000251956* value;
+                        value_in_cm = Math.round(value_in_cm*10)/10.0;
+                        this.motorControlPanelForm.posLabel_VR_cm.setText("(" + value_in_cm + " cm)");
                         break;
                     case HC:
                         this.motorControlPanelForm.posLabel_HC.setText("" + value);
                         this.motorControlPanelForm.progressBar_back_corner.setValue(value);
+                        //TODO measure table and max step position
+                        value_in_cm = 0.0* value;
+                        value_in_cm = Math.round(value_in_cm*10)/10.0;
+                        this.motorControlPanelForm.posLabel_HC_cm.setText("(" + value_in_cm + " cm)");
                         break;
                     case HR:
                         this.motorControlPanelForm.posLabel_HR.setText("" + value);
                         this.motorControlPanelForm.progressBar_back_roof.setValue(value);
+                        //TODO measure table and max step position
+                        value_in_cm = 0.0* value;
+                        value_in_cm = Math.round(value_in_cm*10)/10.0;
+                        this.motorControlPanelForm.posLabel_HR_cm.setText("(" + value_in_cm + " cm)");
                         break;
                 }
                 break;
