@@ -46,8 +46,7 @@ public class CalibrationCalculator {
 
         if(use3H_NOPA) {
             cornerCubePos3H = calculateCornerCubePosition(wavelength_3H, 3);
-            // TODO fit function for the 3H roofmirror as a function of 3H prism position
-            roofMirrorPos3H = 0;
+            roofMirrorPos3H = (int) (-0.707 * cornerCubePos3H + 91738);
         }
 
 

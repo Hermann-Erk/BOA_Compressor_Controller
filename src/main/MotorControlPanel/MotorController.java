@@ -79,9 +79,11 @@ public class MotorController implements ArduinoResponseListener, CommandSenderCo
                     case VC:
                         this.motorControlPanelForm.posLabel_VC.setText("" + value);
                         this.motorControlPanelForm.progressBar_front_corner.setValue(value);
-                        value_in_cm = 0.0002507095* value;
+                        //The value in cm refers to the estimated distance between the two prisms
+                        // (8.8 cm is the minimal distance achievable in this setup)
+                        value_in_cm = 35.3 - 0.0002507095* value;
                         value_in_cm = Math.round(value_in_cm*10)/10.0;
-                        this.motorControlPanelForm.posLabel_VC_cm.setText("(" + value_in_cm + " cm)");
+                        this.motorControlPanelForm.posLabel_VC_cm.setText("(PK~" + value_in_cm + " cm)");
                         break;
                     case VR:
                         this.motorControlPanelForm.posLabel_VR.setText("" + value);
@@ -93,16 +95,14 @@ public class MotorController implements ArduinoResponseListener, CommandSenderCo
                     case HC:
                         this.motorControlPanelForm.posLabel_HC.setText("" + value);
                         this.motorControlPanelForm.progressBar_back_corner.setValue(value);
-                        //TODO measure table and max step position
-                        value_in_cm = 0.0* value;
+                        value_in_cm = 35.3 - 0.00025334* value;
                         value_in_cm = Math.round(value_in_cm*10)/10.0;
-                        this.motorControlPanelForm.posLabel_HC_cm.setText("(" + value_in_cm + " cm)");
+                        this.motorControlPanelForm.posLabel_HC_cm.setText("(PK~" + value_in_cm + " cm)");
                         break;
                     case HR:
                         this.motorControlPanelForm.posLabel_HR.setText("" + value);
                         this.motorControlPanelForm.progressBar_back_roof.setValue(value);
-                        //TODO measure table and max step position
-                        value_in_cm = 0.0* value;
+                        value_in_cm = 0.00025128010* value;
                         value_in_cm = Math.round(value_in_cm*10)/10.0;
                         this.motorControlPanelForm.posLabel_HR_cm.setText("(" + value_in_cm + " cm)");
                         break;

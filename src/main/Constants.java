@@ -12,8 +12,8 @@ public class Constants {
     public static final String portBack = "COM5";
     public static final String commandDelimiter = " ";
 
-    public static final String calibrationFilePath2H = "C:\\Users\\Hermann\\Documents\\GitHub\\BOA_Compressor_Controller\\calibration\\calibrationFile2H.txt";
-    public static final String calibrationFilePath3H = "C:\\Users\\Hermann\\Documents\\GitHub\\BOA_Compressor_Controller\\calibration\\calibrationFile3H.txt";
+    public static final String calibrationFilePath2H = "E:\\Prismenkompressor_Kalibrierung\\calibrationFile2H.txt";
+    public static final String calibrationFilePath3H = "E:\\Prismenkompressor_Kalibrierung\\calibrationFile3H.txt";
 
 
     public static int SMALL_STEP = 200;
